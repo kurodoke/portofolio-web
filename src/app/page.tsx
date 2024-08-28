@@ -1,12 +1,29 @@
 import React from "react";
 import { ReactComponent as Kurodoke } from "@/assets/svg/KURODOKE.svg";
+import { ReactComponent as SixStar } from "@/assets/svg/sixstar.svg";
+import { ReactComponent as DescHero } from "@/assets/svg/— INDONESIAN DESIGNER & FULL-STACK DEVELOPER.svg";
 
 export default function About(): React.ReactElement {
     function Hero(): React.ReactElement {
         return (
-            <div className="flex flex-col m-4 md:m-10 gap-1 md:gap-2">
+            <div className="flex flex-col p-4 md:p-10 gap-2 md:gap-4 bg-black">
+                <div className="flex">
+                    <div className="w-10/12">
+                        <Kurodoke />
+                    </div>
+                    <div className="w-2/12">
+                        <SixStar fill="#fff" />
+                    </div>
+                </div>
+
+                <div className="bg-newsred px-1 py-1 md:px-2 md:py-2">
+                    <DescHero />
+                </div>
                 <div>
-                    <Kurodoke />
+                    <p className="text-base leading-none md:text-4xl text-white">
+                        THIS GUY HAS A DEEP LOVE FOR DESIGN, ALWAYS PUSHING
+                        BOUNDARIES WITH BOLD TYPOGRAPHY AND EXPLORING BRUTALISM.
+                    </p>
                 </div>
             </div>
         );
