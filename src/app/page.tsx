@@ -2,12 +2,19 @@ import React from "react";
 import { ReactComponent as Kurodoke } from "@/assets/svg/KURODOKE.svg";
 import { ReactComponent as SixStar } from "@/assets/svg/sixstar.svg";
 import { ReactComponent as DescHero } from "@/assets/svg/— INDONESIAN DESIGNER & FULL-STACK DEVELOPER.svg";
+import { ReactComponent as InAdditionText } from "@/assets/svg/IN ADDITION.svg";
+import { ReactComponent as ToThatText } from "@/assets/svg/TO THAT.svg";
+import { ReactComponent as Boy } from "@/assets/svg/boy2.svg";
+import { ReactComponent as HesLookingText } from "@/assets/svg/HE'S LOOKING FORWARD TO IT.svg";
+
+import { Line } from "@/components/line";
+import Link from "next/link";
 
 export default function About(): React.ReactElement {
     function Hero(): React.ReactElement {
         return (
-            <div className="flex flex-col p-4 md:p-10 gap-2 md:gap-4 bg-black">
-                <div className="flex">
+            <section className="flex flex-col p-4 sm:p-5 gap-2 sm:gap-4 bg-black">
+                <div className="flex items-center">
                     <div className="w-10/12">
                         <Kurodoke />
                     </div>
@@ -16,22 +23,65 @@ export default function About(): React.ReactElement {
                     </div>
                 </div>
 
-                <div className="bg-newsred px-1 py-1 md:px-2 md:py-2">
+                <div className="bg-newsred px-1 py-1 sm:px-2 sm:py-2">
                     <DescHero />
                 </div>
                 <div>
-                    <p className="text-base leading-none md:text-4xl text-white">
+                    <p className="text-xs leading-none sm:text-2xl lg:text-4xl  text-white">
                         THIS GUY HAS A DEEP LOVE FOR DESIGN, ALWAYS PUSHING
                         BOUNDARIES WITH BOLD TYPOGRAPHY AND EXPLORING BRUTALISM.
                     </p>
                 </div>
-            </div>
+            </section>
+        );
+    }
+
+    function Body(): React.ReactElement {
+        return (
+            <section className="bg-black p-2 sm:p-5">
+                <div className="flex flex-wrap w-full ">
+                    <div className="flex flex-col gap-2 w-full bg-white p-2 border-b-4 border-black sm:w-7/12 sm:border-e-4 sm:p-5">
+                        <div className="flex flex-col gap-2">
+                            <InAdditionText />
+                            <ToThatText />
+                        </div>
+                        <Line />
+                        <p className="text-xs sm:text-base">
+                            When he’s not experimenting with bold design, he’s
+                            busy building full-stack applications that combine
+                            both beauty and functionality. He’s completed a
+                            range of projects, ensuring every detail, from the
+                            front-end visuals to the back-end logic, works
+                            perfectly together. Plus, with his cloud engineering
+                            skills on Google Cloud, he knows how to make these
+                            projects scalable and future-proof.
+                        </p>
+                    </div>
+                    <div className="bg-white w-full p-[2px] sm:pb-0 sm:w-5/12">
+                        <div className="w-full h-full relative overflow-hidden">
+                            <HesLookingText className="absolute w-[150px] translate-x-[calc(16px-2px)] translate-y-[calc(16px-2px)]" />
+                            <Boy
+                                className="border-4 border-black bg-black object-cover"
+                                width={"100%"}
+                                height={"100%"}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full flex items-center justify-between text-white p-2 border-2 border-white border-t-0 sm:border-t-2">
+                    <Link className="text-base sm:text-2xl" href={"/works"}>
+                        See his works →
+                    </Link>
+                    <p className="text-base sm:text-3xl">✷✷✷✷✷</p>
+                </div>
+            </section>
         );
     }
 
     return (
         <>
             <Hero />
+            <Body />
         </>
     );
 }
