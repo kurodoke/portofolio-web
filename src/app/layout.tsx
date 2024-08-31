@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { Footer } from "@/components/layouts/footer";
+import { fontDisplay, fontSerif, fontText } from "@/font";
 import { Header } from "@/components/layouts/header";
-import { istok } from "@/font";
+import { Footer } from "@/components/layouts/footer";
 
 export const metadata: Metadata = {
-    title: "KURODOKE",
-    description: "Portofolio of Kurodoke",
+    title: "Arief Satrio - FullStack",
+    description: "Arief Satrio Portofolio",
 };
 
 export default function RootLayout({
@@ -17,13 +17,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>
-                <main
-                    className={`${istok.className} bg-white m-2 sm:m-10 flex flex-col gap-2 sm:gap-6`}
-                >
-                    <Header />
+            <body className={`${fontDisplay.className} bg-grayBackground`}>
+                <main className="mt-4 md:mt-6">
+                    <Header classname="w-10/12 m-auto" />
                     {children}
-                    <Footer />
+                    <Footer classname="w-10/12 m-auto" />
                 </main>
             </body>
         </html>
