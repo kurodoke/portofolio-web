@@ -3,9 +3,11 @@
 import { fontDisplay, fontSerif, fontText } from "@/font";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { ReactComponent as Logo } from "@/assets/svg/logo.svg";
+import { LogoAnimation } from "../logoAnimation";
+import { EntryAnimation } from "../entryAnimation";
 
 interface PageObject {
     nav: string;
@@ -22,20 +24,16 @@ export function Header({
             nav: "About",
             path: "/",
         },
-        { nav: "Full-Stack", path: "/developer" },
-        { nav: "Designer Graphic", path: "/designer" }
+        { nav: "Fullstack Developer", path: "/developer" },
+        { nav: "Graphic Designer", path: "/designer" }
     );
 
     const pathname: string = usePathname();
 
     return (
-        <header className={`${classname} ${fontSerif.className} select-none`}>
-            <nav className="flex items-center justify-between">
-                <Link className={`logo`} href={"/"}>
-                    Arief Satrio
-                </Link>
-
-                <div className={`${fontText.className} flex gap-2 text-xs`}>
+        <header className={`${classname} select-none text-lg`}>
+            <nav className="flex items-center justify-end">
+                <div className={`flex gap-2`}>
                     {nav.map((_nav: PageObject, index: number) => {
                         return (
                             <div
