@@ -15,8 +15,8 @@ export function TextEntryAnimation({
         visible: (i: number) => ({
             y: 0,
             transition: {
-                delay: i * 0,
-                duration: 2,
+                delay: 0.5 + i * 0.132,
+                duration: 1.3,
                 ease: easing,
             },
         }),

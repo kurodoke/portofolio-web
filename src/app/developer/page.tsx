@@ -1,0 +1,52 @@
+"use client";
+
+import { EntryAnimation } from "@/components/entryAnimation";
+import { Footer } from "@/components/layouts/footer";
+import { Header } from "@/components/layouts/header";
+import { LogoAnimation } from "@/components/logoAnimation";
+import { TextEntryAnimation } from "@/components/textEntryAnimation";
+import { animate } from "framer-motion";
+import React from "react";
+
+export default function Developer(): React.ReactElement {
+    return (
+        <main>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+        </main>
+    );
+}

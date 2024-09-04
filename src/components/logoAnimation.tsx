@@ -19,8 +19,12 @@ import { ReactComponent as LogoLetterTi } from "@/assets/svg/Logo/Logo-t-2.svg";
 import { ReactComponent as LogoLetterRi } from "@/assets/svg/Logo/Logo-r-2.svg";
 import { ReactComponent as LogoLetterIi } from "@/assets/svg/Logo/Logo-i-2.svg";
 import { ReactComponent as LogoLetterOi } from "@/assets/svg/Logo/Logo-o-2.svg";
+import { time } from "console";
+import { useAnimationStore } from "@/providers/entryAnimationProvider";
 
 export function LogoAnimation({ fill }: { fill: string }): React.ReactElement {
+    const { hasPlayed, setHasPlayed } = useAnimationStore((state) => state);
+
     const easing = cubicBezier(0.35, 0.17, 0.3, 0.86);
     const controls = useAnimation();
 
@@ -35,6 +39,7 @@ export function LogoAnimation({ fill }: { fill: string }): React.ReactElement {
             },
         }),
         open: (i: number) => ({
+            y: 0,
             height: "var(--y-to, 1.2rem)",
             transition: {
                 delay: i * 0.05, // Delay animation per letter
@@ -45,17 +50,23 @@ export function LogoAnimation({ fill }: { fill: string }): React.ReactElement {
     };
 
     useEffect(() => {
-        // Start the visible animation
-        controls.start("visible").then(() => {
-            // After the visible animation completes, trigger the open animation
-            setTimeout(() => {
-                controls.start("open");
-            }, 1000); // Adjust this timeout according to your animation timing
-        });
+        if (!hasPlayed) {
+            // Start the visible animation
+            controls.start("visible").then(() => {
+                // After the visible animation completes, trigger the open animation
+                const timer = setTimeout(() => {
+                    controls.mount();
+                    controls.start("open");
+                }, 1000); // Adjust this timeout according to your animation timing
+                return () => {
+                    if (timer) clearTimeout(timer);
+                };
+            });
+        }
     }, [controls]);
 
     return (
-        <div className="flex overflow-hidden mt-5 md:mt-10 w-10/12 ms-auto">
+        <div className="flex overflow-hidden mt-5 md:mt-10 w-11/12 ms-auto">
             <div className="flex">
                 {[
                     <LogoLetterA fill={`${fill}`} height={"100%"} />,
@@ -74,7 +85,7 @@ export function LogoAnimation({ fill }: { fill: string }): React.ReactElement {
                         <motion.div
                             custom={index}
                             key={"logoletter-" + index}
-                            initial="hidden"
+                            initial={hasPlayed ? "open" : "hidden"}
                             animate={controls}
                             variants={letterVariants}
                             className="md:[--y-from:2.6rem] md:[--y-to:1.8rem]"

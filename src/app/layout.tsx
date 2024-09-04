@@ -6,6 +6,7 @@ import { Header } from "@/components/layouts/header";
 import { Footer } from "@/components/layouts/footer";
 import { EntryAnimation } from "@/components/entryAnimation";
 import { LogoAnimation } from "@/components/logoAnimation";
+import { AnimationStoreProvider } from "@/providers/entryAnimationProvider";
 
 export const metadata: Metadata = {
     title: "Arief Satrio - Portofolio",
@@ -20,9 +21,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${fontText.className} bg-grayBackground relative min-h-screen overflow-x-hidden`}
+                className={`${fontText.className} bg-grayBackground relative min-h-screen overflow-y-scroll overflow-x-hidden`}
             >
-                {children}
+                <AnimationStoreProvider>{children}</AnimationStoreProvider>
             </body>
         </html>
     );

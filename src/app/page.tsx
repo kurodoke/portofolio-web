@@ -9,68 +9,45 @@ import { fontDisplay, fontSerif, fontText } from "@/font";
 import React, { useEffect, useState } from "react";
 
 export default function About(): React.ReactElement {
-    const [animate, setAnimate] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => setAnimate(false), 3000);
-    }, []);
-
     return (
-        <div
-            className={`scroll ${
-                animate
-                    ? "overflow-y-hidden h-screen"
-                    : "overflow-y-auto h-auto"
-            }`}
-        >
-            <EntryAnimation classname="z-30">
-                <LogoAnimation fill="#ffab91" />
-                <TextEntryAnimation />
-            </EntryAnimation>
-            <div className="fixed w-[calc(100vw-10px)] m-auto overflow-hidden z-20">
-                <LogoAnimation fill="#000000" />
-            </div>
-            <Header classname="fixed w-10/12 m-auto pt-5 md:pt-10" />
-            <main>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-                <h2>p</h2>
-            </main>
-            <Footer classname="w-10/12 m-auto" />
-        </div>
+        <main>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+            <h2>p</h2>
+        </main>
     );
 }
 
