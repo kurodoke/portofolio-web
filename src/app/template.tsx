@@ -3,6 +3,7 @@
 import { EntryAnimation } from "@/components/entryAnimation";
 import { Footer } from "@/components/layouts/footer";
 import { Header } from "@/components/layouts/header";
+import Logo from "@/components/Logo";
 import { LogoAnimation } from "@/components/logoAnimation";
 import { MobileSidebar } from "@/components/mobileSidebar";
 import { TextEntryAnimation } from "@/components/textEntryAnimation";
@@ -28,7 +29,7 @@ export default function RootTemplate({
 
     return (
         <div className={`scroll`}>
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {isAnimating && (
                     <EntryAnimation
                         classname="z-[200]"
@@ -44,6 +45,10 @@ export default function RootTemplate({
             </AnimatePresence>
             <div className="fixed w-[calc(100vw-10px)] m-auto overflow-hidden z-20 max-h-[15vh] md:max-h-[20vh]">
                 <LogoAnimation fill="#000000" />
+            </div> */}
+
+            <div className="w-[calc(100vw-var(--scrollbar-width))] fixed h-screen top-0 left-0">
+                <Logo />
             </div>
             <MobileSidebarProvider>
                 <MobileSidebar />

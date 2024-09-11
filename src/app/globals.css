@@ -7,3 +7,14 @@
         text-wrap: balance;
     }
 }
+
+@layer utilities {
+    .site-max {
+        padding-left: theme("padding.20");
+        padding-right: theme("padding.20");
+    }
+}
+
+body {
+    --scrollbar-width: calc(100vw - 100%);
+}
