@@ -3,19 +3,14 @@
 import { EntryAnimation } from "@/components/entryAnimation";
 import { Footer } from "@/components/layouts/footer";
 import { Header } from "@/components/layouts/header";
-import Logo from "@/components/Logo";
+import Logo from "@/components/sections/Logo";
 import { LogoAnimation } from "@/components/logoAnimation";
 import { MobileSidebar } from "@/components/mobileSidebar";
 import { TextEntryAnimation } from "@/components/textEntryAnimation";
 import { useAnimationStore } from "@/providers/entryAnimationProvider";
 import { MobileSidebarProvider } from "@/providers/mobileSidebarProvider";
-import {
-    animate,
-    AnimatePresence,
-    useAnimation,
-    useAnimationControls,
-} from "framer-motion";
 import React, { useEffect, useState } from "react";
+import Navigation from "@/components/sections/Navigation";
 
 export default function RootTemplate({
     children,
@@ -29,31 +24,12 @@ export default function RootTemplate({
 
     return (
         <div className={`scroll`}>
-            {/* <AnimatePresence>
-                {isAnimating && (
-                    <EntryAnimation
-                        classname="z-[200]"
-                        onAnimationComplete={() => {
-                            setIsAnimating(false);
-                            setHasPlayed();
-                        }}
-                    >
-                        <LogoAnimation fill="#ffab91" />
-                        <TextEntryAnimation />
-                    </EntryAnimation>
-                )}
-            </AnimatePresence>
-            <div className="fixed w-[calc(100vw-10px)] m-auto overflow-hidden z-20 max-h-[15vh] md:max-h-[20vh]">
-                <LogoAnimation fill="#000000" />
-            </div> */}
-
-            <div className="w-[calc(100vw-var(--scrollbar-width))] fixed h-screen top-0 left-0">
-                <Logo />
-            </div>
-            <MobileSidebarProvider>
+            <Logo />
+            <Navigation />
+            {/* <MobileSidebarProvider>
                 <MobileSidebar />
                 <Header classname="fixed w-11/12 m-auto pt-5 md:pt-10 z-[21] max-h-[15vh] md:max-h-[20vh]" />
-            </MobileSidebarProvider>
+            </MobileSidebarProvider> */}
             <main className="w-10/12 m-auto pt-[15vh] md:pt-[20vh]">
                 {children}
             </main>

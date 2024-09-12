@@ -33,6 +33,7 @@ function CustomMotionG({
             // initial={hasPlayed ? "open" : "hidden"}
             animate={"visible"}
             variants={baseVariant}
+            className={"translate-y-full"}
         >
             {children}
         </motion.g>
@@ -169,39 +170,41 @@ export default function Logo(): React.ReactElement {
     };
 
     return (
-        <div className="relative w-[calc(100vw-var(--scrollbar-width))]">
-            <motion.div
-                className="absolute flex items-end bg-[#fe5c3c] border border-y-2 w-full border-black origin-top overflow-hidden"
-                initial={{ height: "100vh", y: "0" }}
-                animate={{
-                    y: "-1rem",
-                    height: "0vh",
-                    transition: {
-                        ease: textShowEase,
-                        delay: 2.6,
-                        duration: 2.8,
-                    },
-                }}
-            ></motion.div>
-            <div className="relative w-[calc(100%-2.5rem)] md:w-full left-5 top-5 md:left-10 md:top-10">
+        <section className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0">
+            <div className="relative w-full">
                 <motion.div
-                    className="absolute pointer-events-none cursor-none origin-top-left w-full [--scale-to:0.15] md:[--scale-to:0.1]"
-                    initial={{ scale: 1, top: "100%" }}
+                    className="absolute flex items-end bg-[#fe5c3c] border border-y-2 w-full border-black origin-top overflow-hidden"
+                    initial={{ height: "100vh", y: "0" }}
                     animate={{
-                        scale: "var(--scale-to)",
+                        y: "-1rem",
+                        height: "0vh",
                         transition: {
                             ease: textShowEase,
                             delay: 2.6,
-                            duration: 1.4,
+                            duration: 2.8,
                         },
                     }}
-                >
-                    <div className="w-full">
-                        <Arief className="w-[80.50%] md:w-[44.597701149%] h-auto" />
-                        <Satrio className="w-full md:w-[55.402298851%] h-auto" />
-                    </div>
-                </motion.div>
+                ></motion.div>
+                <div className="relative w-[calc(100%-2.5rem)] md:w-full left-5 top-5 md:left-10 md:top-10">
+                    <motion.div
+                        className="absolute pointer-events-none cursor-none origin-top-left w-full [--scale-to:0.15] md:[--scale-to:0.1]"
+                        initial={{ scale: 1 }}
+                        animate={{
+                            scale: "var(--scale-to)",
+                            transition: {
+                                ease: textShowEase,
+                                delay: 2.6,
+                                duration: 1.4,
+                            },
+                        }}
+                    >
+                        <div className="w-full">
+                            <Arief className="w-[80.50%] md:w-[44.597701149%] h-auto" />
+                            <Satrio className="w-full md:w-[55.402298851%] h-auto" />
+                        </div>
+                    </motion.div>
+                </div>
             </div>
-        </div>
+        </section>
     );
 }
