@@ -1,7 +1,7 @@
 import React from "react";
 import { cubicBezier, motion, Variants } from "framer-motion";
 
-const textshowEase = cubicBezier(0.39, 0, 0.04, 0.98);
+const textShowEase = cubicBezier(0.39, 0, 0.04, 0.98);
 
 const baseVariant: Variants = {
     hidden: { y: "100%" },
@@ -10,7 +10,7 @@ const baseVariant: Variants = {
         transition: {
             delay: i * 0.05,
             duration: 2,
-            ease: textshowEase,
+            ease: textShowEase,
         },
     }),
 };
@@ -162,57 +162,46 @@ export default function Logo(): React.ReactElement {
     const textAnimationBase = {
         height: "1.25rem",
         transition: {
-            ease: textshowEase,
+            ease: textShowEase,
             delay: 2.6,
             duration: 1.4,
         },
     };
 
     return (
-        <div className="relative w-screen h-screen">
+        <div className="relative w-[calc(100vw-var(--scrollbar-width))]">
             <motion.div
-                className="flex items-end bg-[#fe5c3c] border border-y-2 w-screen border-black origin-top overflow-hidden fixed"
+                className="absolute flex items-end bg-[#fe5c3c] border border-y-2 w-full border-black origin-top overflow-hidden"
                 initial={{ height: "100vh", y: "0" }}
                 animate={{
                     y: "-1rem",
                     height: "0vh",
                     transition: {
-                        ease: textshowEase,
+                        ease: textShowEase,
                         delay: 2.6,
                         duration: 2.8,
                     },
                 }}
             ></motion.div>
-            <motion.div
-                className="flex flex-col absolute p-5 md:p-10 w-full pointer-events-none cursor-none"
-                initial={{ top: "100%", translateY: "-100%" }}
-                animate={{
-                    top: "0%",
-                    translateY: "0%",
-                    transition: {
-                        ease: textshowEase,
-                        delay: 2.6,
-                        duration: 1.4,
-                    },
-                }}
-            >
-                <div className={`h-[calc(50%-2.5rem)] w-[${ariefSize}]`}>
-                    <motion.div
-                        initial={{ height: "100%" }}
-                        animate={textAnimationBase}
-                    >
-                        <Arief className="w-auto h-full" />
-                    </motion.div>
-                </div>
-                <div className={`h-[calc(50%-2.5rem)] w-[${satrioSize}]`}>
-                    <motion.div
-                        initial={{ height: "100%" }}
-                        animate={textAnimationBase}
-                    >
-                        <Satrio className="w-auto h-full" />
-                    </motion.div>
-                </div>
-            </motion.div>
+            <div className="relative w-[calc(100%-2.5rem)] md:w-full left-5 top-5 md:left-10 md:top-10">
+                <motion.div
+                    className="absolute pointer-events-none cursor-none origin-top-left w-full [--scale-to:0.15] md:[--scale-to:0.1]"
+                    initial={{ scale: 1 }}
+                    animate={{
+                        scale: "var(--scale-to)",
+                        transition: {
+                            ease: textShowEase,
+                            delay: 2.6,
+                            duration: 1.4,
+                        },
+                    }}
+                >
+                    <div className="w-full">
+                        <Arief className="w-[80.50%] md:w-[44.597701149%] h-auto" />
+                        <Satrio className="w-full md:w-[55.402298851%] h-auto" />
+                    </div>
+                </motion.div>
+            </div>
         </div>
     );
 }
