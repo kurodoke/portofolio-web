@@ -1,5 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { cubicBezier, motion, Variants } from "framer-motion";
+import useIntro from "@/app/hooks/useIntro";
+import { IntroStoreProvider, useIntroStore } from "@/providers/IntroProvider";
 
 const textShowEase = cubicBezier(0.39, 0, 0.04, 0.98);
 
@@ -160,42 +164,48 @@ export default function Logo(): React.ReactElement {
     const ariefFullSize = "80.50%";
     const satrioFullSize = "100%";
 
-    const textAnimationBase = {
-        height: "1.25rem",
-        transition: {
-            ease: textShowEase,
-            delay: 2.6,
-            duration: 1.4,
-        },
-    };
+    const { isHasPlayed, setIsHasPlayed } = useIntroStore((state) => state);
 
     return (
         <section className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0">
+            {isHasPlayed}
             <div className="relative w-full">
                 <motion.div
                     className="absolute flex items-end bg-[#fe5c3c] border border-y-2 w-full border-black origin-top overflow-hidden"
-                    initial={{ height: "100vh", y: "0" }}
-                    animate={{
-                        y: "-1rem",
-                        height: "0vh",
-                        transition: {
-                            ease: textShowEase,
-                            delay: 2.6,
-                            duration: 2.8,
+                    initial={isHasPlayed ? "hidden" : "visible"}
+                    whileInView={"hidden"}
+                    variants={{
+                        visible: {
+                            height: "100vh",
+                            y: "0",
+                        },
+                        hidden: {
+                            y: "-1rem",
+                            height: "0vh",
                         },
                     }}
+                    transition={{
+                        ease: textShowEase,
+                        delay: 2.6,
+                        duration: 2.8,
+                    }}
+                    onAnimationComplete={setIsHasPlayed}
                 ></motion.div>
                 <div className="relative w-[calc(100%-2.5rem)] md:w-full left-5 top-5 md:left-10 md:top-10">
                     <motion.div
                         className="absolute pointer-events-none cursor-none origin-top-left w-full [--scale-to:0.15] md:[--scale-to:0.1]"
-                        initial={{ scale: 1 }}
-                        animate={{
-                            scale: "var(--scale-to)",
-                            transition: {
-                                ease: textShowEase,
-                                delay: 2.6,
-                                duration: 1.4,
+                        initial={isHasPlayed ? "visible" : "hidden"}
+                        whileInView={"visible"}
+                        variants={{
+                            hidden: { scale: 1 },
+                            visible: {
+                                scale: "var(--scale-to)",
                             },
+                        }}
+                        transition={{
+                            ease: textShowEase,
+                            delay: 2.6,
+                            duration: 1.4,
                         }}
                     >
                         <div className="w-full">

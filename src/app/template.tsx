@@ -7,24 +7,26 @@ import Logo from "@/components/sections/Logo";
 import { LogoAnimation } from "@/components/logoAnimation";
 import { MobileSidebar } from "@/components/mobileSidebar";
 import { TextEntryAnimation } from "@/components/textEntryAnimation";
-import { useAnimationStore } from "@/providers/entryAnimationProvider";
 import { MobileSidebarProvider } from "@/providers/mobileSidebarProvider";
 import React, { useEffect, useState } from "react";
 import Navigation from "@/components/sections/Navigation";
+import { IntroStoreProvider } from "@/providers/IntroProvider";
 
 export default function RootTemplate({
     children,
 }: {
     children: React.ReactNode;
 }): React.ReactElement {
-    const { hasPlayed, setHasPlayed } = useAnimationStore((state) => state);
-    const [isAnimating, setIsAnimating] = useState(!hasPlayed);
+    // const { hasPlayed, setHasPlayed } = useAnimationStore((state) => state);
+    // const [isAnimating, setIsAnimating] = useState(!hasPlayed);
 
     useEffect(() => {}, []);
 
     return (
         <div className={`scroll`}>
-            <Logo />
+            <IntroStoreProvider>
+                <Logo />
+            </IntroStoreProvider>
             <Navigation />
             {/* <MobileSidebarProvider>
                 <MobileSidebar />

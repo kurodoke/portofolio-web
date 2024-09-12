@@ -16,7 +16,7 @@ import {
     useAnimation,
     Variants,
 } from "framer-motion";
-import { useAnimationStore } from "@/providers/entryAnimationProvider";
+import { useAnimationStore } from "@/providers/IntroProvider";
 import { HtmlContext } from "next/dist/server/future/route-modules/app-page/vendored/contexts/entrypoints";
 import { useMobileSidebarStore } from "@/providers/mobileSidebarProvider";
 

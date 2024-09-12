@@ -20,7 +20,7 @@ import { ReactComponent as LogoLetterRi } from "@/assets/svg/Logo/Logo-r-2.svg";
 import { ReactComponent as LogoLetterIi } from "@/assets/svg/Logo/Logo-i-2.svg";
 import { ReactComponent as LogoLetterOi } from "@/assets/svg/Logo/Logo-o-2.svg";
 import { time } from "console";
-import { useAnimationStore } from "@/providers/entryAnimationProvider";
+import { useAnimationStore } from "@/providers/IntroProvider";
 
 export function LogoAnimation({ fill }: { fill: string }): React.ReactElement {
     const { hasPlayed, setHasPlayed } = useAnimationStore((state) => state);
