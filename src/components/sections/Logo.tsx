@@ -171,7 +171,7 @@ export default function Logo(): React.ReactElement {
             {isHasPlayed}
             <div className="relative w-full">
                 <motion.div
-                    className="absolute flex items-end bg-[#fe5c3c] border border-y-2 w-full border-black origin-top overflow-hidden"
+                    className="absolute flex items-end bg-custom-orange border border-y-2 w-full border-black origin-top overflow-hidden"
                     initial={isHasPlayed ? "hidden" : "visible"}
                     whileInView={"hidden"}
                     variants={{

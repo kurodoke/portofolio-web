@@ -20,7 +20,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${fontText.className} bg-grayBackground relative min-h-screen overflow-y-scroll overflow-x-hidden`}
+                className={`${fontText.className} bg-custom-gray relative min-h-screen overflow-y-scroll overflow-x-hidden`}
             >
                 {children}
             </body>

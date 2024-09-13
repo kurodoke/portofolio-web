@@ -23,7 +23,7 @@ export default function RootTemplate({
     useEffect(() => {}, []);
 
     return (
-        <div className={`scroll`}>
+        <div className={`scroll relative`}>
             <IntroStoreProvider>
                 <Logo />
             </IntroStoreProvider>
