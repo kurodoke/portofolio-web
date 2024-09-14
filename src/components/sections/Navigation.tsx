@@ -13,20 +13,24 @@ import React, { useState } from "react";
 interface NavigationLinkInterface {
     name: string;
     path: string;
+    color: string;
 }
 
 const nav: Array<NavigationLinkInterface> = new Array(
     {
         name: "about",
         path: "/",
+        color: "bg-custom-yellow",
     },
     {
         name: "fullstack developer",
         path: "/developer",
+        color: "bg-custom-purple",
     },
     {
         name: "graphic designer",
         path: "/designer",
+        color: "bg-custom-orange",
     }
 );
 //---
@@ -118,44 +122,39 @@ export default function Navigation(): React.ReactElement {
                         >
                             <div className="h-full flex">
                                 <div className="left-side flex-1 hidden md:block">
-                                    <div className=""></div>
+                                    <div className="bg-custom-blue h-full"></div>
                                 </div>
-                                <div className="right-side flex flex-col flex-1 justify-end float-end md:me-10">
-                                    <div className="head-side mt-5 md:mt-10 flex justify-end me-5 md:me-0">
-                                        <div className="">
-                                            <button
-                                                onClick={() => {
-                                                    setIsOpenNav(false);
-                                                }}
-                                            >
-                                                <CloseIcon />
-                                            </button>
-                                        </div>
+                                <div className="right-side flex flex-col flex-1 justify-end float-end md:mx-10 py-5 md:py-10">
+                                    <div className="head flex justify-between mx-5 md:me-0">
+                                        <p>menu</p>
+                                        <button
+                                            onClick={() => {
+                                                setIsOpenNav(false);
+                                            }}
+                                        >
+                                            <CloseIcon />
+                                        </button>
                                     </div>
 
-                                    <div className="p-5 h-full mb-5 mb:mb-5">
-                                        <ul className="h-full flex flex-col nav-clamp justify-evenly">
+                                    <div className="body p-5 h-full">
+                                        <ul className="h-full flex flex-col nav-clamp gap-8 md:justify-evenly">
                                             {nav.map((_nav, index) => {
                                                 const isActive =
                                                     _nav.path ===
                                                     currentPathname;
 
-                                                const color =
-                                                    index == 0
-                                                        ? "bg-custom-yellow"
-                                                        : index == 1
-                                                        ? "bg-custom-purple"
-                                                        : "bg-custom-orange";
-
                                                 return (
                                                     <li key={`nav-li-${index}`}>
                                                         <Link
                                                             key={`nav-link-${index}`}
-                                                            className={`block text-center w-full p-5 outline outline-transparent outline-2 hover:outline-black ${
+                                                            className={`block text-center md:w-full p-2 outline outline-transparent outline-2 hover:outline-black ${
                                                                 isActive
-                                                                    ? `${color} !outline-black`
+                                                                    ? `${_nav.color} !outline-black`
                                                                     : ``
-                                                            } ${`hover:${color}`} transition-all duration-300`}
+                                                            } ${
+                                                                `hover:` +
+                                                                _nav.color
+                                                            } transition-all duration-300`}
                                                             href={_nav.path}
                                                         >
                                                             {_nav.name}

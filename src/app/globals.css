@@ -20,15 +20,6 @@
     }
 }
 
-:root {
-    --custom-gray: #eeede9;
-    --custom-dark-gray: #e5e3db;
-    --custom-orange: #fe5c3c;
-    --custom-blue: #005fcc;
-    --custom-purple: #9657eb;
-    --custom-yellow: #f0b845;
-}
-
 body {
     --scrollbar-width: calc(100vw - 100%);
 }
