@@ -14,6 +14,7 @@ interface NavigationLinkInterface {
     name: string;
     path: string;
     color: string;
+    text: string;
 }
 
 const nav: Array<NavigationLinkInterface> = new Array(
@@ -21,34 +22,25 @@ const nav: Array<NavigationLinkInterface> = new Array(
         name: "about",
         path: "/",
         color: "bg-custom-yellow",
+        text: "Explore Arief Satrio's background.",
     },
     {
         name: "fullstack developer",
         path: "/developer",
         color: "bg-custom-purple",
+        text: "Arief builds and maintains full web solutions, from front to back end.",
     },
     {
         name: "graphic designer",
         path: "/designer",
         color: "bg-custom-orange",
+        text: "Arief creates engaging designs such as Poster, MV, and Motion Graphic.",
     }
 );
 //---
 
 //animation things
 const animationEase = cubicBezier(0.005, 0.88, 0.235, 0.985);
-
-const animationVariant: Variants = {
-    hidden: { opacity: 0 },
-    visible: (i: number) => ({
-        opacity: 1,
-        transition: {
-            delay: 2 + i * 0.2,
-            duration: 0.5,
-            easings: animationEase,
-        },
-    }),
-};
 //---
 
 function DotIcon(): React.ReactElement<React.SVGProps<SVGSVGElement>> {
@@ -94,10 +86,37 @@ function CloseIcon(): React.ReactElement<React.SVGProps<SVGSVGElement>> {
     );
 }
 
+function ContentHovered({
+    className,
+    children,
+}: {
+    className: string;
+    children: string;
+}) {
+    return (
+        <motion.div
+            className={`${className} flex items-center text-end justify-center text-2xl font-bold origin-center p-10`}
+            initial={{ clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 }}
+            animate={{ clipPath: "inset(0% 0% 0% 0%)", scale: 1 }}
+            exit={{ clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 }}
+            transition={{ duration: 1.3, ease: animationEase }}
+        >
+            {children}
+        </motion.div>
+    );
+}
+
 export default function Navigation(): React.ReactElement {
     const [isOpenNav, setIsOpenNav] = useState<boolean>(false);
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+    const [whichHovered, setWhichHovered] =
+        useState<NavigationLinkInterface | null>(null);
 
     const currentPathname = usePathname();
+
+    const selectedNav: NavigationLinkInterface = nav.filter((_nav) => {
+        return _nav.path === currentPathname;
+    })[0];
 
     return (
         <header className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0 text-lg">
@@ -121,8 +140,24 @@ export default function Navigation(): React.ReactElement {
                             transition={{ duration: 0.8, ease: animationEase }}
                         >
                             <div className="h-full flex">
-                                <div className="left-side flex-1 hidden md:block">
-                                    <div className="bg-custom-blue h-full"></div>
+                                <div className="left-side relative flex-1 hidden md:block overflow-hidden">
+                                    <AnimatePresence mode="wait">
+                                        {isHovered &&
+                                            whichHovered !== null &&
+                                            whichHovered !== selectedNav && (
+                                                <ContentHovered
+                                                    className={`absolute w-full h-full ${whichHovered.color}`}
+                                                >
+                                                    {whichHovered.text}
+                                                </ContentHovered>
+                                            )}
+                                    </AnimatePresence>
+
+                                    <div
+                                        className={`h-full p-10 text-end flex items-center justify-center text-2xl font-bold ${selectedNav.color}`}
+                                    >
+                                        {selectedNav.text}
+                                    </div>
                                 </div>
                                 <div className="right-side flex flex-col flex-1 justify-end float-end md:mx-10 py-5 md:py-10">
                                     <div className="head flex justify-between mx-5 md:me-0">
@@ -146,6 +181,22 @@ export default function Navigation(): React.ReactElement {
                                                 return (
                                                     <li key={`nav-li-${index}`}>
                                                         <Link
+                                                            onMouseEnter={() => {
+                                                                setIsHovered(
+                                                                    true
+                                                                );
+                                                                setWhichHovered(
+                                                                    _nav
+                                                                );
+                                                            }}
+                                                            onMouseLeave={() => {
+                                                                setIsHovered(
+                                                                    false
+                                                                );
+                                                                setWhichHovered(
+                                                                    null
+                                                                );
+                                                            }}
                                                             key={`nav-link-${index}`}
                                                             className={`block text-center md:w-full p-2 outline outline-transparent outline-2 hover:outline-black ${
                                                                 isActive
