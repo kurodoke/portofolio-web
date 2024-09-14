@@ -15,7 +15,7 @@
     }
 
     .nav-clamp {
-        font-size: clamp(1.25rem, 2rem + 5vw, 4.5rem);
+        font-size: clamp(1.25rem, 2rem + 2vw + 2vh, 4.25rem);
         line-height: 1;
     }
 }

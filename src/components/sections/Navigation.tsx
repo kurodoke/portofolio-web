@@ -25,13 +25,15 @@ const nav: Array<NavigationLinkInterface> = new Array(
         text: "Explore Arief Satrio's background.",
     },
     {
-        name: "fullstack developer",
+        name: `fullstack
+        developer`,
         path: "/developer",
         color: "bg-custom-purple",
         text: "Arief builds and maintains full web solutions, from front to back end.",
     },
     {
-        name: "graphic designer",
+        name: `graphic
+        designer`,
         path: "/designer",
         color: "bg-custom-orange",
         text: "Arief creates engaging designs such as Poster, MV, and Motion Graphic.",
@@ -86,22 +88,30 @@ function CloseIcon(): React.ReactElement<React.SVGProps<SVGSVGElement>> {
     );
 }
 
-function ContentHovered({
+function LeftInfo({
     className,
     children,
+    animate = true,
 }: {
     className: string;
     children: string;
+    animate?: boolean;
 }) {
+    const animationProps = animate
+        ? {
+              initial: { clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 },
+              animate: { clipPath: "inset(0% 0% 0% 0%)", scale: 1 },
+              exit: { clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 },
+              transition: { duration: 1.3, ease: animationEase },
+          }
+        : {};
+
     return (
         <motion.div
             className={`${className} flex items-center text-end justify-center text-2xl font-bold origin-center p-10`}
-            initial={{ clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 }}
-            animate={{ clipPath: "inset(0% 0% 0% 0%)", scale: 1 }}
-            exit={{ clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 }}
-            transition={{ duration: 1.3, ease: animationEase }}
+            {...animationProps}
         >
-            {children}
+            <p className="w-full">{children}</p>
         </motion.div>
     );
 }
@@ -141,23 +151,24 @@ export default function Navigation(): React.ReactElement {
                         >
                             <div className="h-full flex">
                                 <div className="left-side relative flex-1 hidden md:block overflow-hidden">
-                                    <AnimatePresence mode="wait">
+                                    <AnimatePresence>
                                         {isHovered &&
                                             whichHovered !== null &&
                                             whichHovered !== selectedNav && (
-                                                <ContentHovered
+                                                <LeftInfo
                                                     className={`absolute w-full h-full ${whichHovered.color}`}
                                                 >
                                                     {whichHovered.text}
-                                                </ContentHovered>
+                                                </LeftInfo>
                                             )}
                                     </AnimatePresence>
 
-                                    <div
-                                        className={`h-full p-10 text-end flex items-center justify-center text-2xl font-bold ${selectedNav.color}`}
+                                    <LeftInfo
+                                        animate={false}
+                                        className={`h-full ${selectedNav.color}`}
                                     >
                                         {selectedNav.text}
-                                    </div>
+                                    </LeftInfo>
                                 </div>
                                 <div className="right-side flex flex-col flex-1 justify-end float-end md:mx-10 py-5 md:py-10">
                                     <div className="head flex justify-between mx-5 md:me-0">
@@ -172,7 +183,7 @@ export default function Navigation(): React.ReactElement {
                                     </div>
 
                                     <div className="body p-5 h-full">
-                                        <ul className="h-full flex flex-col nav-clamp gap-8 md:justify-evenly">
+                                        <ul className="h-full flex flex-col nav-clamp gap-8 md:gap-0 md:justify-evenly">
                                             {nav.map((_nav, index) => {
                                                 const isActive =
                                                     _nav.path ===
@@ -208,7 +219,9 @@ export default function Navigation(): React.ReactElement {
                                                             } transition-all duration-300`}
                                                             href={_nav.path}
                                                         >
-                                                            {_nav.name}
+                                                            <p className="whitespace-pre-line">
+                                                                {_nav.name}
+                                                            </p>
                                                         </Link>
                                                     </li>
                                                 );
