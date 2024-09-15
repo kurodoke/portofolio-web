@@ -174,7 +174,7 @@ export default function Logo(): React.ReactElement {
     const { isHasPlayed, setIsHasPlayed } = useIntroStore((state) => state);
 
     return (
-        <section className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0">
+        <section className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0 z-[9998]">
             <div className="relative w-full">
                 <motion.div
                     className="absolute flex items-end bg-custom-orange border border-y-2 w-full border-black origin-top overflow-hidden"

@@ -11,16 +11,19 @@ const animationEase = cubicBezier(0.005, 0.88, 0.235, 0.985);
 function HeroSpan({
     children,
     delay,
-    className = "overflow-hidden origin-center",
+    className,
 }: {
-    className?: string;
+    className: string;
     children: React.ReactNode;
     delay: number;
 }): React.ReactElement {
     return (
         <div className={className}>
             <motion.span
-                initial={{ clipPath: "inset(0% 0% 100% 0%)", y: "100%" }}
+                initial={{
+                    clipPath: "inset(0% 0% 100% 0%)",
+                    y: "100%",
+                }}
                 animate={{ clipPath: "inset(0% 0% 0% 0%)", y: "0%" }}
                 transition={{
                     delay: delay,

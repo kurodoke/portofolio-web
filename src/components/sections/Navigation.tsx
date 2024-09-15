@@ -123,111 +123,104 @@ export default function Navigation(): React.ReactElement {
     })[0];
 
     return (
-        <header className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0 text-lg">
-            <div className="relative w-full">
-                <div className="absolute right-5 top-5 md:right-10 md:top-10">
-                    <button
-                        onClick={() => {
-                            setIsOpenNav(true);
-                        }}
+        <header className="w-[calc(100vw-var(--scrollbar-width))] fixed text-lg z-[9999]">
+            <div className="absolute right-5 top-5 md:right-10 md:top-10">
+                <button
+                    onClick={() => {
+                        setIsOpenNav(true);
+                    }}
+                >
+                    <HamburgerIcon />
+                </button>
+            </div>
+            <AnimatePresence>
+                {isOpenNav && (
+                    <motion.nav
+                        className="absolute left-0 top-0 w-full h-screen bg-custom-dark-gray"
+                        initial={{ clipPath: "inset(0% 0% 0% 100%)" }}
+                        animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                        exit={{ clipPath: "inset(0% 0% 0% 100%)" }}
+                        transition={{ duration: 0.8, ease: animationEase }}
                     >
-                        <HamburgerIcon />
-                    </button>
-                </div>
-                <AnimatePresence>
-                    {isOpenNav && (
-                        <motion.nav
-                            className="fixed left-0 top-0 w-full h-screen bg-custom-dark-gray"
-                            initial={{ clipPath: "inset(0% 0% 0% 100%)" }}
-                            animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                            exit={{ clipPath: "inset(0% 0% 0% 100%)" }}
-                            transition={{ duration: 0.8, ease: animationEase }}
-                        >
-                            <div className="h-full flex">
-                                <div className="left-side relative flex-1 hidden md:block overflow-hidden">
-                                    <AnimatePresence>
-                                        {isHovered &&
-                                            whichHovered !== null &&
-                                            whichHovered !== selectedNav && (
-                                                <LeftInfo
-                                                    className={`absolute w-full h-full ${whichHovered.color}`}
-                                                >
-                                                    {whichHovered.text}
-                                                </LeftInfo>
-                                            )}
-                                    </AnimatePresence>
+                        <div className="h-full flex">
+                            <div className="left-side relative flex-1 hidden md:block overflow-hidden">
+                                <AnimatePresence>
+                                    {isHovered &&
+                                        whichHovered !== null &&
+                                        whichHovered !== selectedNav && (
+                                            <LeftInfo
+                                                className={`absolute w-full h-full ${whichHovered.color}`}
+                                            >
+                                                {whichHovered.text}
+                                            </LeftInfo>
+                                        )}
+                                </AnimatePresence>
 
-                                    <LeftInfo
-                                        animate={false}
-                                        className={`h-full ${selectedNav.color}`}
+                                <LeftInfo
+                                    animate={false}
+                                    className={`h-full ${selectedNav.color}`}
+                                >
+                                    {selectedNav.text}
+                                </LeftInfo>
+                            </div>
+                            <div className="right-side flex flex-col flex-1 justify-end float-end md:mx-10 py-5 md:py-10">
+                                <div className="head flex justify-between mx-5 md:me-0">
+                                    <p>menu</p>
+                                    <button
+                                        onClick={() => {
+                                            setIsOpenNav(false);
+                                        }}
                                     >
-                                        {selectedNav.text}
-                                    </LeftInfo>
+                                        <CloseIcon />
+                                    </button>
                                 </div>
-                                <div className="right-side flex flex-col flex-1 justify-end float-end md:mx-10 py-5 md:py-10">
-                                    <div className="head flex justify-between mx-5 md:me-0">
-                                        <p>menu</p>
-                                        <button
-                                            onClick={() => {
-                                                setIsOpenNav(false);
-                                            }}
-                                        >
-                                            <CloseIcon />
-                                        </button>
-                                    </div>
 
-                                    <div className="body p-5 h-full">
-                                        <ul className="h-full flex flex-col nav-clamp gap-8 md:gap-0 md:justify-evenly">
-                                            {nav.map((_nav, index) => {
-                                                const isActive =
-                                                    _nav.path ===
-                                                    currentPathname;
+                                <div className="body p-5 h-full">
+                                    <ul className="h-full flex flex-col nav-clamp gap-8 md:gap-0 md:justify-evenly">
+                                        {nav.map((_nav, index) => {
+                                            const isActive =
+                                                _nav.path === currentPathname;
 
-                                                return (
-                                                    <li key={`nav-li-${index}`}>
-                                                        <Link
-                                                            onMouseEnter={() => {
-                                                                setIsHovered(
-                                                                    true
-                                                                );
-                                                                setWhichHovered(
-                                                                    _nav
-                                                                );
-                                                            }}
-                                                            onMouseLeave={() => {
-                                                                setIsHovered(
-                                                                    false
-                                                                );
-                                                                setWhichHovered(
-                                                                    null
-                                                                );
-                                                            }}
-                                                            key={`nav-link-${index}`}
-                                                            className={`block text-center md:w-full p-2 outline outline-transparent outline-2 hover:outline-black ${
-                                                                isActive
-                                                                    ? `${_nav.color} !outline-black`
-                                                                    : ``
-                                                            } ${
-                                                                `hover:` +
-                                                                _nav.color
-                                                            } transition-all duration-300`}
-                                                            href={_nav.path}
-                                                        >
-                                                            <p className="whitespace-pre-line">
-                                                                {_nav.name}
-                                                            </p>
-                                                        </Link>
-                                                    </li>
-                                                );
-                                            })}
-                                        </ul>
-                                    </div>
+                                            return (
+                                                <li key={`nav-li-${index}`}>
+                                                    <Link
+                                                        onMouseEnter={() => {
+                                                            setIsHovered(true);
+                                                            setWhichHovered(
+                                                                _nav
+                                                            );
+                                                        }}
+                                                        onMouseLeave={() => {
+                                                            setIsHovered(false);
+                                                            setWhichHovered(
+                                                                null
+                                                            );
+                                                        }}
+                                                        key={`nav-link-${index}`}
+                                                        className={`block text-center md:w-full p-2 outline outline-transparent outline-2 hover:outline-black ${
+                                                            isActive
+                                                                ? `${_nav.color} !outline-black`
+                                                                : ``
+                                                        } ${
+                                                            `hover:` +
+                                                            _nav.color
+                                                        } transition-all duration-300`}
+                                                        href={_nav.path}
+                                                    >
+                                                        <p className="whitespace-pre-line">
+                                                            {_nav.name}
+                                                        </p>
+                                                    </Link>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
                                 </div>
                             </div>
-                        </motion.nav>
-                    )}
-                </AnimatePresence>
-            </div>
+                        </div>
+                    </motion.nav>
+                )}
+            </AnimatePresence>
         </header>
     );
 }
