@@ -9,44 +9,5 @@ import { animate } from "framer-motion";
 import React from "react";
 
 export default function Designer(): React.ReactElement {
-    return (
-        <main>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-            <h2>p</h2>
-        </main>
-    );
+    return <main></main>;
 }
