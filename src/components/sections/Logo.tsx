@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { cubicBezier, motion, Variants } from "framer-motion";
-import useIntro from "@/app/hooks/useIntro";
-import { IntroStoreProvider, useIntroStore } from "@/providers/IntroProvider";
+import { useIntroStore } from "@/providers/IntroProvider";
 
 const textShowEase = cubicBezier(0.39, 0, 0.04, 0.98);
 
@@ -44,7 +43,11 @@ function CustomMotionG({
     );
 }
 
-function Arief({ className }: { className: string }): React.ReactElement {
+function Arief({
+    className,
+}: {
+    className: string;
+}): React.ReactElement<React.SVGProps<SVGSVGElement>> {
     let animationIndex = 0;
     return (
         <svg viewBox="0 0 190 78" className={className}>
@@ -95,7 +98,11 @@ function Arief({ className }: { className: string }): React.ReactElement {
     );
 }
 
-function Satrio({ className }: { className: string }) {
+function Satrio({
+    className,
+}: {
+    className: string;
+}): React.ReactElement<React.SVGProps<SVGSVGElement>> {
     let animationIndex = 5;
     return (
         <svg viewBox="0 0 241 77" className={className}>
@@ -168,7 +175,6 @@ export default function Logo(): React.ReactElement {
 
     return (
         <section className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0">
-            {isHasPlayed}
             <div className="relative w-full">
                 <motion.div
                     className="absolute flex items-end bg-custom-orange border border-y-2 w-full border-black origin-top overflow-hidden"

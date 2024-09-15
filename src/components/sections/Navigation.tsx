@@ -1,10 +1,4 @@
-import {
-    AnimatePresence,
-    cubicBezier,
-    motion,
-    useAnimation,
-    Variants,
-} from "framer-motion";
+import { AnimatePresence, cubicBezier, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";

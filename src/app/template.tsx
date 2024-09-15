@@ -26,15 +26,16 @@ export default function RootTemplate({
         <div className={`scroll relative`}>
             <IntroStoreProvider>
                 <Logo />
-            </IntroStoreProvider>
-            <Navigation />
-            {/* <MobileSidebarProvider>
+
+                <Navigation />
+                {/* <MobileSidebarProvider>
                 <MobileSidebar />
                 <Header classname="fixed w-11/12 m-auto pt-5 md:pt-10 z-[21] max-h-[15vh] md:max-h-[20vh]" />
             </MobileSidebarProvider> */}
-            <main className="p-5 md:p-10 m-auto pt-[15vh] md:pt-[20vh]">
-                {children}
-            </main>
+                <div className="wrapper p-5 md:p-10 m-auto pt-[15vh] md:pt-[20vh]">
+                    {children}
+                </div>
+            </IntroStoreProvider>
             <Footer classname="w-10/12 m-auto" />
         </div>
     );
