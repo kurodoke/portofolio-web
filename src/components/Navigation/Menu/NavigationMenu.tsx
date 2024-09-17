@@ -1,6 +1,6 @@
 import { useNavigationStore } from "@/providers/navigationProvider";
 import { AnimatePresence, motion } from "framer-motion";
-import { navigationAnimation } from "../animation";
+import { navigationEase } from "../animation";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
 
@@ -14,7 +14,7 @@ export default function NavigationMenu(): React.ReactElement {
                     initial={{ clipPath: "inset(0% 0% 0% 100%)" }}
                     animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
                     exit={{ clipPath: "inset(0% 0% 0% 100%)" }}
-                    transition={{ duration: 0.8, ease: navigationAnimation }}
+                    transition={{ duration: 0.8, ease: navigationEase }}
                 >
                     <div className="h-full flex">
                         <LeftSide />

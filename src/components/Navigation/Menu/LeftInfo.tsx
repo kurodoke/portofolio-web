@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { navigationAnimation } from "../animation";
+import { navigationEase } from "../animation";
 
 export default function LeftInfo({
     className,
@@ -15,7 +15,7 @@ export default function LeftInfo({
               initial: { clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 },
               animate: { clipPath: "inset(0% 0% 0% 0%)", scale: 1 },
               exit: { clipPath: "inset(0% 0% 0% 100%)", scale: 1.15 },
-              transition: { duration: 1.3, ease: navigationAnimation },
+              transition: { duration: 1.3, ease: navigationEase },
           }
         : {};
 
