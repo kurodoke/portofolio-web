@@ -7,7 +7,7 @@ export default function Arief({
 }): React.ReactElement<React.SVGProps<SVGSVGElement>> {
     let animationIndex = 0;
     return (
-        <svg viewBox="0 0 190 78" className={className}>
+        <svg viewBox="0 0 241 78" className={className}>
             <AnimatedLogoLetter id="a" index={animationIndex}>
                 <path
                     id="0"

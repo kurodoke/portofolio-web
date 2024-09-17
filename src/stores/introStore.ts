@@ -1,23 +1,25 @@
-import { create, createStore } from "zustand";
+import { createStore } from "zustand";
 import { createJSONStorage, devtools, persist } from "zustand/middleware";
 
 // Define the store
 export interface IntroStore {
     isHasPlayed: boolean;
-    setIsHasPlayed: () => void;
+    setIsHasPlayed: (state: boolean) => void;
 }
 
-export const createIntroStore = (initState: boolean = false) => {
+sessionStorage.clear();
+
+export const createIntroStore = () => {
     return createStore<IntroStore>()(
         devtools(
             persist<IntroStore>(
                 (set) => ({
-                    isHasPlayed: initState,
-                    setIsHasPlayed: () => set({ isHasPlayed: true }),
+                    isHasPlayed: false,
+                    setIsHasPlayed: (state) => set({ isHasPlayed: state }),
                 }),
                 {
-                    name: "Intro-played", // Key for sessionStorage or localStorage
-                    storage: createJSONStorage(() => sessionStorage), // Use sessionStorage
+                    name: "Intro-played",
+                    storage: createJSONStorage(() => sessionStorage),
                 }
             )
         )

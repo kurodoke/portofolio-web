@@ -2,15 +2,18 @@ import { motion } from "framer-motion";
 import { useIntroStore } from "@/providers/IntroProvider";
 import Arief from "./Letter/Arief";
 import Satrio from "./Letter/Satrio";
-import { logoAnimation } from "./animation";
+import { logoEase } from "./animation";
 
 export default function Logo(): React.ReactElement {
     const { isHasPlayed, setIsHasPlayed } = useIntroStore((state) => state);
+
     return (
         <section className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0 z-[9998]">
             <div className="relative w-full">
                 <motion.div
-                    className="absolute flex items-end bg-custom-orange border border-y-2 w-full border-black origin-top overflow-hidden"
+                    className={`absolute flex items-end bg-custom-orange border border-y-2 w-full border-black origin-top overflow-hidden ${
+                        isHasPlayed ? "hidden" : ""
+                    }`}
                     initial={isHasPlayed ? "hidden" : "visible"}
                     whileInView={"hidden"}
                     variants={{
@@ -24,34 +27,41 @@ export default function Logo(): React.ReactElement {
                         },
                     }}
                     transition={{
-                        ease: logoAnimation,
+                        ease: logoEase,
                         delay: 2.6,
                         duration: 2.8,
                     }}
-                    onAnimationComplete={setIsHasPlayed}
+                    onAnimationComplete={() => {
+                        setIsHasPlayed(true);
+                    }}
                 ></motion.div>
-                <div className="relative w-[calc(100%-2.5rem)] md:w-full left-5 top-5 md:left-10 md:top-10">
-                    <motion.div
-                        className="absolute pointer-events-none cursor-none origin-top-left w-full [--scale-to:0.15] md:[--scale-to:0.1]"
-                        initial={isHasPlayed ? "visible" : "hidden"}
-                        whileInView={"visible"}
-                        variants={{
-                            hidden: { scale: 1 },
-                            visible: {
-                                scale: "var(--scale-to)",
-                            },
-                        }}
-                        transition={{
-                            ease: logoAnimation,
-                            delay: 2.6,
-                            duration: 1.4,
-                        }}
+                <div className="relative w-[calc(100%-2.5rem)] md:w-full ">
+                    <div
+                        className={`absolute pointer-events-none cursor-none inset-5 ww-[calc(100%-2.5rem)] md:w-[calc(100%-5rem)] h-[calc(100vh-2.5rem)] md:h-[calc(100vh-5rem)] md:inset-10 origin-top-left  ${
+                            isHasPlayed ? "!h-auto" : ""
+                        }`}
                     >
-                        <div className="w-full">
-                            <Arief className="w-[80.50%] md:w-[44.597701149%] h-auto" />
-                            <Satrio className="w-full md:w-[55.402298851%] h-auto" />
-                        </div>
-                    </motion.div>
+                        <motion.div
+                            className="flex flex-col"
+                            initial={isHasPlayed ? "visible" : "hidden"}
+                            whileInView={"visible"}
+                            variants={{
+                                hidden: { height: "100%", width: "100%" },
+                                visible: {
+                                    height: "2.5rem",
+                                    width: "3.86rem",
+                                },
+                            }}
+                            transition={{
+                                ease: logoEase,
+                                delay: 2.6,
+                                duration: 1.4,
+                            }}
+                        >
+                            <Arief className="" />
+                            <Satrio className="" />
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

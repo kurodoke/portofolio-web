@@ -7,7 +7,7 @@ export default function Satrio({
 }): React.ReactElement<React.SVGProps<SVGSVGElement>> {
     let animationIndex = 5;
     return (
-        <svg viewBox="0 0 241 77" className={className}>
+        <svg viewBox="0 0 241 78" className={className}>
             <AnimatedLogoLetter id="s" index={(animationIndex += 1)}>
                 <path
                     id="0"
