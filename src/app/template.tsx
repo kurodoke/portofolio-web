@@ -21,7 +21,7 @@ export default function RootTemplate({
             <IntroStoreProvider>
                 <Logo />
                 <Navigation />
-                <div className="wrapper pt-[2.5rem] md:pt-[5rem]">
+                <div className="wrapper pt-[3.725rem] md:pt-[5rem]">
                     {children}
                 </div>
             </IntroStoreProvider>

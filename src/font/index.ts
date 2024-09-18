@@ -18,10 +18,16 @@ export const fontText = Inter_Tight({
     weight: "500",
     subsets: ["latin"],
 });
-export const fontDisplay = Inter_Tight({
+
+export const fontDisplay = localFont({
+    src: "PPMori-SemiBold.otf",
     weight: "700",
-    subsets: ["latin"],
 });
+export const fontDisplayItalic = localFont({
+    src: "PPMori-RegularItalic.otf",
+    weight: "700",
+});
+
 export const fontSerif = localFont({
     src: "MulatAddis-Regular.ttf",
     weight: "500",
