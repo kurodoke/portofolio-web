@@ -1,7 +1,7 @@
 "use client";
 
 import Logo from "@/components/Logo/Logo";
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "@/components/Navigation/Navigation";
 import { IntroStoreProvider } from "@/providers/IntroProvider";
 
@@ -10,6 +10,12 @@ export default function RootTemplate({
 }: {
     children: React.ReactNode;
 }): React.ReactElement {
+    useEffect(() => {
+        window.addEventListener("beforeunload", () => {
+            sessionStorage.removeItem("intro-played");
+        });
+    }, []);
+
     return (
         <div className={`content`}>
             <IntroStoreProvider>

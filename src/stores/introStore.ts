@@ -7,8 +7,6 @@ export interface IntroStore {
     setIsHasPlayed: (state: boolean) => void;
 }
 
-sessionStorage.clear();
-
 export const createIntroStore = () => {
     return createStore<IntroStore>()(
         devtools(
@@ -18,7 +16,7 @@ export const createIntroStore = () => {
                     setIsHasPlayed: (state) => set({ isHasPlayed: state }),
                 }),
                 {
-                    name: "Intro-played",
+                    name: "intro-played",
                     storage: createJSONStorage(() => sessionStorage),
                 }
             )
