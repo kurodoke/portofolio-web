@@ -5,14 +5,16 @@ import React from "react";
 export default function Intro(): React.ReactElement {
     return (
         <section className="intro p-5 md:p-10 bg-custom-yellow border-y-2 border-black">
-            <div className="grid grid-cols-6 gap-y-5 md:grid-cols-12 text-base md:text-xl">
+            <div className="grid grid-cols-6 gap-y-5 md:gap-x-10 md:grid-cols-12 text-base md:text-xl">
                 <div className="col-span-6 md:col-span-3 text-2xl md:text-xl">
-                    .01
+                    .0A
                 </div>
                 <div className="col-span-6 md:col-span-9">
                     <div className="grid md:grid-cols-9 grid-cols-6 gap-y-5 md:gap-x-10 md:gap-y-5">
                         <div className="hidden col-span-9 md:block">
-                            <h2 className={`${fontDisplay.className} text-7xl`}>
+                            <h2
+                                className={`${fontDisplay.className} md:text-5xl lg:text-7xl`}
+                            >
                                 Where Creativity Meets Technical Expertise
                             </h2>
                         </div>
