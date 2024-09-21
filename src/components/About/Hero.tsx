@@ -71,6 +71,7 @@ export default function Hero(): React.ReactElement {
                                 className="w-auto md:h-[10.84vw]"
                                 src={imagePosterAnd}
                                 alt="and-poster"
+                                priority={true}
                             />
                         </motion.div>
                         <div className="flex md:block gap-2">
