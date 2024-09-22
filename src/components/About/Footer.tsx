@@ -8,18 +8,19 @@ export default function Footer(): React.ReactElement {
     return (
         <footer className="p-5 md:p-10 bg-custom-orange border-t-2 border-black">
             <div className="grid grid-cols-6 gap-y-5 gap-x-5 md:gap-x-10 md:gap-y-5 md:grid-cols-12">
-                <button
-                    className="col-span-6 md:col-span-12"
-                    onClick={(e) => {
-                        window.scrollTo({
-                            top: 0,
-                            left: 0,
-                            behavior: "smooth",
-                        });
-                    }}
-                >
-                    ↑ Back to top
-                </button>
+                <div className="col-span-6 md:col-span-12 flex justify-center">
+                    <button
+                        onClick={() => {
+                            window.scrollTo({
+                                top: 0,
+                                left: 0,
+                                behavior: "smooth",
+                            });
+                        }}
+                    >
+                        ↑ Back to top
+                    </button>
+                </div>
                 <div className="col-span-3 md:col-span-4 flex flex-col justify-between md:block">
                     <div className="w-3/4 md:w-2/4">
                         <Arief className="" />
