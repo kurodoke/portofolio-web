@@ -3,6 +3,7 @@ import Arief from "../Logo/Letter/Arief";
 import Satrio from "../Logo/Letter/Satrio";
 import Link from "next/link";
 import { fontDisplay } from "@/font";
+import { AnimatedLink } from "../AnimatedLink";
 
 export default function Footer(): React.ReactElement {
     return (
@@ -35,26 +36,26 @@ export default function Footer(): React.ReactElement {
                             Catch him in other platform
                         </h5>
                         <p>
-                            <Link
+                            <AnimatedLink
                                 href={
                                     "https://www.linkedin.com/in/arief-satrio-budi-prasojo"
                                 }
                             >
                                 Linkedln
-                            </Link>{" "}
+                            </AnimatedLink>{" "}
                             /{" "}
-                            <Link href={"https://github.com/kurodoke"}>
+                            <AnimatedLink href={"https://github.com/kurodoke"}>
                                 Github
-                            </Link>
+                            </AnimatedLink>
                         </p>
                     </div>
                     <div className="col-span-3 md:col-start-7 flex flex-col justify-end">
                         <h5 className={`${fontDisplay.className} text-lg`}>
                             Email
                         </h5>
-                        <Link href={"mailto:ariefsatrio098@gmail.com"}>
+                        <AnimatedLink href={"mailto:ariefsatrio098@gmail.com"}>
                             ariefsatrio098@gmail.com.
-                        </Link>
+                        </AnimatedLink>
                     </div>
                 </div>
             </div>

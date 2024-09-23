@@ -3,18 +3,29 @@ import { AnimatePresence, motion } from "framer-motion";
 import { navigationEase } from "../animation";
 import LeftSide from "./LeftSide";
 import RightSide from "./RightSide";
+import { usePageStore } from "@/providers/pageProvider";
+import { useEffect } from "react";
 
 export default function NavigationMenu(): React.ReactElement {
-    const { isNavOpen } = useNavigationStore();
+    const { isNavOpen, setIsNavOpen } = useNavigationStore();
+    const { isChange } = usePageStore();
+
+    useEffect(() => {
+        if (!isChange) setIsNavOpen(false);
+    }, [isChange]);
+
     return (
         <AnimatePresence>
-            {isNavOpen && (
+            {isNavOpen && !isChange && (
                 <motion.nav
                     className="absolute left-0 top-0 w-full h-screen bg-custom-dark-gray"
                     initial={{ clipPath: "inset(0% 0% 0% 100%)" }}
                     animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                    exit={{ clipPath: "inset(0% 0% 0% 100%)" }}
-                    transition={{ duration: 0.8, ease: navigationEase }}
+                    exit={{
+                        clipPath: "inset(0% 0% 0% 100%)",
+                        transition: { duration: 0.5 },
+                    }}
+                    transition={{ duration: 1, ease: navigationEase }}
                 >
                     <div className="h-full flex">
                         <LeftSide />

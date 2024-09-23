@@ -10,6 +10,7 @@ import AnimatedPortofolioButton from "./AnimatedPortofolioButton";
 import { aboutEase } from "./animation";
 import AnimatedPortofolioText from "./AnimatedPortofolioText";
 import Link from "next/link";
+import { AnimatedLink } from "../AnimatedLink";
 
 type SelectedPortofolio = "fullstack" | "designer";
 
@@ -68,9 +69,12 @@ export default function Portofolio(): React.ReactElement {
                                 The excellence of coffee is that it fuels Arief
                                 to build amazing projects as a full-stack
                                 developer. It drastically drives his creativity.{" "}
-                                <Link href={"/developer"} className="underline">
+                                <AnimatedLink
+                                    href={"/developer"}
+                                    className="underline"
+                                >
                                     See his project here
-                                </Link>
+                                </AnimatedLink>
                             </AnimatedPortofolioText>
                         ) : (
                             <AnimatedPortofolioText
@@ -81,9 +85,12 @@ export default function Portofolio(): React.ReactElement {
                                 graphic designer. It happens when he's designing
                                 something, but he tackles it and turns it into
                                 an interesting design.{" "}
-                                <Link href={"/designer"} className="underline">
+                                <AnimatedLink
+                                    href={"/designer"}
+                                    className="underline"
+                                >
                                     See his design here
-                                </Link>
+                                </AnimatedLink>
                             </AnimatedPortofolioText>
                         )}
                     </div>
@@ -117,9 +124,12 @@ export default function Portofolio(): React.ReactElement {
                                 The excellence of coffee is that it fuels Arief
                                 to build amazing projects as a full-stack
                                 developer. It drastically drives his creativity.{" "}
-                                <Link href={"/developer"} className="underline">
+                                <AnimatedLink
+                                    href={"/developer"}
+                                    className="underline"
+                                >
                                     See his project here
-                                </Link>
+                                </AnimatedLink>
                             </AnimatedPortofolioText>
                         ) : (
                             <AnimatedPortofolioText
@@ -130,13 +140,17 @@ export default function Portofolio(): React.ReactElement {
                                 graphic designer. It happens when he's designing
                                 something, but he tackles it and turns it into
                                 an interesting design.{" "}
-                                <Link href={"/designer"} className="underline">
+                                <AnimatedLink
+                                    href={"/designer"}
+                                    className="underline"
+                                >
                                     See his design here
-                                </Link>
+                                </AnimatedLink>
                             </AnimatedPortofolioText>
                         )}
                     </div>
                 </div>
+                <div className="col-span-6 md:col-span-12 pb-8 md:pb-7"></div>
             </div>
         </section>
     );

@@ -22,13 +22,17 @@ export default function LeftSide(): React.ReactElement {
                     whichItemHovered !== selectedNav && (
                         <LeftInfo
                             className={`absolute w-full h-full ${whichItemHovered.color}`}
+                            _key={whichItemHovered.name + "-left"}
                         >
                             {whichItemHovered.text}
                         </LeftInfo>
                     )}
             </AnimatePresence>
-
-            <LeftInfo animate={false} className={`h-full ${selectedNav.color}`}>
+            <LeftInfo
+                animate={false}
+                className={`h-full ${selectedNav.color}`}
+                _key={selectedNav.name + "-left"}
+            >
                 {selectedNav.text}
             </LeftInfo>
         </div>

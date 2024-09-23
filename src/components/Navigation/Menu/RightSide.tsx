@@ -1,9 +1,10 @@
 import React from "react";
 import { navItems } from "../navItems";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import CloseIcon from "../icons/CloseIcon";
 import { useNavigationStore } from "@/providers/navigationProvider";
+import { fontDisplay } from "@/font";
+import { AnimatedLink } from "@/components/AnimatedLink";
 
 export default function RightSide(): React.ReactElement {
     const { setIsNavOpen, setIsHovered, setWhichItemHovered } =
@@ -31,7 +32,7 @@ export default function RightSide(): React.ReactElement {
 
                         return (
                             <li key={`nav-li-${index}`}>
-                                <Link
+                                <AnimatedLink
                                     onMouseEnter={() => {
                                         setIsHovered(true);
                                         setWhichItemHovered(item);
@@ -41,7 +42,10 @@ export default function RightSide(): React.ReactElement {
                                         setWhichItemHovered(null);
                                     }}
                                     key={`nav-link-${index}`}
-                                    className={`block text-center md:w-full p-2 outline outline-transparent outline-2 hover:outline-black ${
+                                    preventClick={isActive}
+                                    className={`${
+                                        fontDisplay.className
+                                    } block text-center md:w-full p-2 outline outline-transparent outline-2 hover:outline-black ${
                                         isActive
                                             ? `${item.color} !outline-black`
                                             : ``
@@ -50,10 +54,10 @@ export default function RightSide(): React.ReactElement {
                                     } transition-all duration-300`}
                                     href={item.path}
                                 >
-                                    <p className="whitespace-pre-line">
+                                    <p className="whitespace-pre-line leading-none">
                                         {item.name}
                                     </p>
-                                </Link>
+                                </AnimatedLink>
                             </li>
                         );
                     })}

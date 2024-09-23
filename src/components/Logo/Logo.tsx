@@ -5,7 +5,7 @@ import Satrio from "./Letter/Satrio";
 import { logoEase } from "./animation";
 
 export default function Logo(): React.ReactElement {
-    const { isHasPlayed, setIsHasPlayed } = useIntroStore((state) => state);
+    const { isHasPlayed, setIsHasPlayed } = useIntroStore();
 
     return (
         <section className="w-[calc(100vw-var(--scrollbar-width))] fixed top-0 left-0 z-[9998]">

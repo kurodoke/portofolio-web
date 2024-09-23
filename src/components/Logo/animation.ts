@@ -12,4 +12,12 @@ export const logoTextVariant: Variants = {
             ease: logoEase,
         },
     }),
+    exit: (i: number) => ({
+        y: "-100%",
+        transition: {
+            delay: i * 0.005,
+            duration: 0.6,
+            ease: logoEase,
+        },
+    }),
 };

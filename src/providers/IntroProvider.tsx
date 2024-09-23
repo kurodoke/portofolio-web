@@ -35,12 +35,12 @@ export function IntroStoreProvider({ children }: IntroStoreProviderProps) {
 }
 
 //hook store
-export const useIntroStore = <T,>(selector: (store: IntroStore) => T): T => {
+export const useIntroStore = (): IntroStore => {
     const introStoreContext = useContext(IntroStoreContext);
 
     if (!introStoreContext) {
         throw new Error(`useIntroStore must be used within IntroStoreProvider`);
     }
 
-    return useStore(introStoreContext, selector);
+    return useStore(introStoreContext, (state) => state);
 };

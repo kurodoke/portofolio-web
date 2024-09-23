@@ -1,6 +1,7 @@
 import { fontDisplay, fontDisplayItalic } from "@/font";
 import Link from "next/link";
 import React from "react";
+import { AnimatedLink } from "../AnimatedLink";
 
 export default function Intro(): React.ReactElement {
     return (
@@ -50,12 +51,12 @@ export default function Intro(): React.ReactElement {
                                 working with talented people and using his
                                 expertise to drive innovation and quality in
                                 every project. Feel free to connect with him at{" "}
-                                <Link
+                                <AnimatedLink
                                     className="underline underline-offset-1"
                                     href={"mailto:ariefsatrio098@gmail.com"}
                                 >
                                     ariefsatrio098@gmail.com.
-                                </Link>
+                                </AnimatedLink>
                             </p>
                         </div>
                     </div>
