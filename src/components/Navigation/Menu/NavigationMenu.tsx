@@ -23,7 +23,7 @@ export default function NavigationMenu(): React.ReactElement {
                     animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
                     exit={{
                         clipPath: "inset(0% 0% 0% 100%)",
-                        transition: { duration: 0.5 },
+                        transition: { duration: 0.5, ease: navigationEase },
                     }}
                     transition={{ duration: 1, ease: navigationEase }}
                 >
