@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { aboutEase } from "./animation";
+import { aboutEase } from "./page/About/animation";
 import { fontDisplay, fontDisplayItalic } from "@/font";
 
 export default function AnimatedHeroText({
