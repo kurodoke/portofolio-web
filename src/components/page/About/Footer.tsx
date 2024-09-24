@@ -1,9 +1,9 @@
 import React from "react";
-import Arief from "../Logo/Letter/Arief";
-import Satrio from "../Logo/Letter/Satrio";
+import Arief from "../../Logo/Letter/Arief";
+import Satrio from "../../Logo/Letter/Satrio";
 import Link from "next/link";
 import { fontDisplay } from "@/font";
-import { AnimatedLink } from "../AnimatedLink";
+import { AnimatedLink } from "../../AnimatedLink";
 
 export default function Footer(): React.ReactElement {
     return (
@@ -32,10 +32,12 @@ export default function Footer(): React.ReactElement {
 
                 <div className="col-span-3 md:col-span-8 grid grid-cols-3 md:grid-cols-8 gap-y-5 md:gap-x-10 md:gap-y-5">
                     <div className="col-span-3 md:col-start-3 flex flex-col justify-end">
-                        <h5 className={`${fontDisplay.className} text-lg`}>
+                        <h5
+                            className={`${fontDisplay.className} text-base md:text-lg`}
+                        >
                             Catch him in other platform
                         </h5>
-                        <p>
+                        <p className="text-sm md:text-base">
                             <AnimatedLink
                                 href={
                                     "https://www.linkedin.com/in/arief-satrio-budi-prasojo"
@@ -50,10 +52,15 @@ export default function Footer(): React.ReactElement {
                         </p>
                     </div>
                     <div className="col-span-3 md:col-start-7 flex flex-col justify-end">
-                        <h5 className={`${fontDisplay.className} text-lg`}>
+                        <h5
+                            className={`${fontDisplay.className} text-base md:text-lg`}
+                        >
                             Email
                         </h5>
-                        <AnimatedLink href={"mailto:ariefsatrio098@gmail.com"}>
+                        <AnimatedLink
+                            className="text-sm md:text-base"
+                            href={"mailto:ariefsatrio098@gmail.com"}
+                        >
                             ariefsatrio098@gmail.com.
                         </AnimatedLink>
                     </div>

@@ -1,7 +1,7 @@
 import { fontDisplay, fontDisplayItalic } from "@/font";
 import Link from "next/link";
 import React from "react";
-import { AnimatedLink } from "../AnimatedLink";
+import { AnimatedLink } from "../../AnimatedLink";
 
 export default function Intro(): React.ReactElement {
     return (

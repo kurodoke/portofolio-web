@@ -8,7 +8,7 @@ import imagePosterAnd from "@/assets/images/and-poster.jpg";
 import Image from "next/image";
 
 export default function Hero(): React.ReactElement {
-    const { isHasPlayed } = useIntroStore((state) => state);
+    const { isHasPlayed } = useIntroStore();
 
     const baseDelay = isHasPlayed ? 0 : 3.9;
     let indexAnimation = 0;

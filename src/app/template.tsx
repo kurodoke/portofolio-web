@@ -7,7 +7,7 @@ import { IntroStoreProvider } from "@/providers/IntroProvider";
 import { PageProvider, usePageStore } from "@/providers/pageProvider";
 import { motion, useAnimation, Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { aboutEase } from "@/components/About/animation";
+import { aboutEase } from "@/components/page/About/animation";
 
 export default function RootTemplate({
     children,
@@ -68,7 +68,7 @@ function RootMain({
             variants={variant}
             transition={{ duration: 0.5, ease: aboutEase }}
             onAnimationComplete={() => {
-                router.push(pathPage, { scroll: false });
+                router.push(pathPage, { scroll: true });
             }}
             className="wrapper pt-[3.725rem] md:pt-[5rem]"
         >

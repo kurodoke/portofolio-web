@@ -10,7 +10,7 @@ import AnimatedPortofolioButton from "./AnimatedPortofolioButton";
 import { aboutEase } from "./animation";
 import AnimatedPortofolioText from "./AnimatedPortofolioText";
 import Link from "next/link";
-import { AnimatedLink } from "../AnimatedLink";
+import { AnimatedLink } from "../../AnimatedLink";
 
 type SelectedPortofolio = "fullstack" | "designer";
 
