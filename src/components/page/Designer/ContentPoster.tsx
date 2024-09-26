@@ -4,6 +4,11 @@ import { useIntroStore } from "@/providers/IntroProvider";
 import { getDelay } from "@/util/getDelay";
 import React from "react";
 import { posterItems } from "./posterItems";
+import { AnimatePresence, motion } from "framer-motion";
+import { rootEase } from "@/util/rootEase";
+import { fontDisplay, fontDisplayItalic } from "@/font";
+import AnimatedHeroText from "@/components/AnimatedHeroText";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function ContentPoster(): React.ReactElement {
     const storage = useStorage() + "image/";
@@ -34,6 +39,18 @@ export default function ContentPoster(): React.ReactElement {
                     );
                 })}
             </ul>
+            <AnimatePresence>
+                <div className="overflow-hidden m-5">
+                    <AnimatedText
+                        scroll={true}
+                        type="italic"
+                        duration={1.5}
+                        className="justify-center text-lg md:text-xl leading-none"
+                    >
+                        You see the End...
+                    </AnimatedText>
+                </div>
+            </AnimatePresence>
         </section>
     );
 }
