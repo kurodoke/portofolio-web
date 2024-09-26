@@ -1,5 +1,3 @@
-import { config } from "process";
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     webpack: (config) => {
@@ -11,6 +9,17 @@ const nextConfig = {
         return config;
     },
     reactStrictMode: true,
+
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "storage.googleapis.com",
+                port: "",
+                pathname: "/portofolio-image-krk/image/**",
+            },
+        ],
+    },
 };
 
 export default nextConfig;

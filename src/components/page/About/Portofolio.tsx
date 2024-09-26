@@ -2,21 +2,19 @@ import { fontDisplay } from "@/font";
 import Image from "next/image";
 import React, { useState } from "react";
 
-import imagePosterCoffeeAddict from "@/assets/images/coffee-addict.jpg";
-import imagePosterVisuallyBright from "@/assets/images/visually-bright.jpg";
-import { AnimatePresence, motion } from "framer-motion";
 import AnimatedPortofolioFigure from "./AnimatedPortofolioFigure";
 import AnimatedPortofolioButton from "./AnimatedPortofolioButton";
-import { aboutEase } from "./animation";
 import AnimatedPortofolioText from "./AnimatedPortofolioText";
-import Link from "next/link";
 import { AnimatedLink } from "../../AnimatedLink";
+import useStorage from "@/app/hooks/useStorage";
 
 type SelectedPortofolio = "fullstack" | "designer";
 
 export default function Portofolio(): React.ReactElement {
     const [selectedPortofolio, setSelectedPortofolio] =
         useState<SelectedPortofolio>("fullstack");
+
+    const image = useStorage() + "image/";
 
     return (
         <section className="p-5 md:p-10">
@@ -109,17 +107,21 @@ export default function Portofolio(): React.ReactElement {
                     {selectedPortofolio == "fullstack" ? (
                         <AnimatedPortofolioFigure _key="poster-coffee-addict">
                             <Image
-                                priority={true}
-                                src={imagePosterCoffeeAddict}
+                                loading="eager"
+                                src={image + "coffee-addict.jpg"}
                                 alt="poster-coffee-addict"
+                                width={720}
+                                height={650}
                             />
                         </AnimatedPortofolioFigure>
                     ) : (
                         <AnimatedPortofolioFigure _key="poster-visually-bright">
                             <Image
-                                priority={true}
-                                src={imagePosterVisuallyBright}
+                                loading="eager"
+                                src={image + "visually-bright.jpg"}
                                 alt="poster-visually-bright"
+                                width={720}
+                                height={650}
                             />
                         </AnimatedPortofolioFigure>
                     )}

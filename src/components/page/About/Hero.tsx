@@ -1,19 +1,21 @@
 import { useIntroStore } from "@/providers/IntroProvider";
-import React from "react";
+import React, { useEffect } from "react";
 import { aboutEase } from "./animation";
 import { getDelay } from "@/util/getDelay";
 import AnimatedHeroText from "../../AnimatedHeroText";
 import { fontDisplay } from "@/font";
 import { motion } from "framer-motion";
-import imagePosterAnd from "@/assets/images/and-poster.jpg";
 import Image from "next/image";
 import AnimatedText from "@/components/AnimatedText";
+import useStorage from "@/app/hooks/useStorage";
 
 export default function Hero(): React.ReactElement {
     const { isHasPlayed } = useIntroStore();
 
     const baseDelay = isHasPlayed ? 0 : 3.9;
     let indexAnimation = 0;
+
+    const image = useStorage() + "image/";
 
     return (
         <section
@@ -60,9 +62,11 @@ export default function Hero(): React.ReactElement {
                         >
                             <Image
                                 className="w-auto md:h-[10.84vw] border-2 border-black"
-                                src={imagePosterAnd}
+                                src={image + "and-poster.jpg"}
                                 alt="and-poster"
-                                priority={true}
+                                width={800}
+                                height={600}
+                                loading="eager"
                             />
                         </motion.div>
                         <div className="flex md:block gap-2">
