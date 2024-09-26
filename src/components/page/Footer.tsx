@@ -1,9 +1,9 @@
 import React from "react";
-import Arief from "../../Logo/Letter/Arief";
-import Satrio from "../../Logo/Letter/Satrio";
+import Arief from "../Logo/Letter/Arief";
+import Satrio from "../Logo/Letter/Satrio";
 import Link from "next/link";
 import { fontDisplay } from "@/font";
-import { AnimatedLink } from "../../AnimatedLink";
+import { AnimatedLink } from "../AnimatedLink";
 
 export default function Footer(): React.ReactElement {
     return (

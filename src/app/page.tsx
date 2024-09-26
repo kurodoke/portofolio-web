@@ -1,6 +1,6 @@
 "use client";
 
-import Footer from "@/components/page/About/Footer";
+import Footer from "@/components/page/Footer";
 import Hero from "@/components/page/About/Hero";
 import Intro from "@/components/page/About/Intro";
 import Portofolio from "@/components/page/About/Portofolio";

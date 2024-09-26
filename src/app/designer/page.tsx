@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/components/page/Footer";
+import ContentPoster from "@/components/page/Designer/ContentPoster";
 import ContentSwitcher, {
     ContentSwitcherState,
 } from "@/components/page/Designer/ContentSwitcher";
@@ -13,6 +15,8 @@ export default function Designer(): React.ReactElement {
         <main>
             <Hero />
             <ContentSwitcher state={content} setState={setContent} />
+            {content === "poster" && <ContentPoster />}
+            <Footer />
         </main>
     );
 }
