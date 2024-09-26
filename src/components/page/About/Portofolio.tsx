@@ -28,7 +28,7 @@ export default function Portofolio(): React.ReactElement {
                     <div className="flex flex-col gap-2 text-xl">
                         <h5>See his Portofolio</h5>
                         <ul
-                            className={`text-6xl md:text-[5.436vw] leading-none ${fontDisplay.className} flex flex-col gap-2 lg:gap-5`}
+                            className={`text-6xl md:text-[5.436vw] leading-none ${fontDisplay.className} flex flex-col gap-5`}
                         >
                             <li>
                                 <AnimatedPortofolioButton
@@ -36,6 +36,11 @@ export default function Portofolio(): React.ReactElement {
                                         if (selectedPortofolio !== "fullstack")
                                             setSelectedPortofolio("fullstack");
                                     }}
+                                    className={`${
+                                        selectedPortofolio === "fullstack"
+                                            ? "is-active"
+                                            : ""
+                                    } before:h-1 md:before:bottom-[-0.5rem]`}
                                 >
                                     <h1 className="flex">
                                         Fullstack
@@ -50,6 +55,11 @@ export default function Portofolio(): React.ReactElement {
                                         if (selectedPortofolio !== "designer")
                                             setSelectedPortofolio("designer");
                                     }}
+                                    className={`${
+                                        selectedPortofolio === "designer"
+                                            ? "is-active"
+                                            : ""
+                                    } before:h-1 md:before:bottom-[-0.5rem]`}
                                 >
                                     <h1 className="flex">
                                         Graphic
