@@ -1,6 +1,6 @@
 "use client";
 
-import Footer from "@/components/page/Footer";
+import Footer from "@/components/page/Footer/Footer";
 import ContentPoster from "@/components/page/Designer/ContentPoster";
 import ContentSwitcher, {
     ContentSwitcherState,
