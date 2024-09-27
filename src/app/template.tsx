@@ -2,7 +2,7 @@
 
 import Logo from "@/components/page/Header/Logo/Logo";
 import React, { useEffect, useState } from "react";
-import Navigation from "@/components/Navigation/Navigation";
+import Navigation from "@/components/page/Header/Navigation/Navigation";
 import { IntroStoreProvider } from "@/providers/IntroProvider";
 import { PageProvider, usePageStore } from "@/providers/pageProvider";
 import { motion, useAnimation, Variants } from "framer-motion";
