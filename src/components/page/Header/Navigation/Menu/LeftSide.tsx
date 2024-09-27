@@ -30,10 +30,12 @@ export default function LeftSide(): React.ReactElement {
             </AnimatePresence>
             <LeftInfo
                 animate={false}
-                className={`h-full ${selectedNav.color}`}
-                _key={selectedNav.name + "-left"}
+                className={`h-full ${
+                    selectedNav ? selectedNav.color : "bg-custom-dark-gray"
+                }`}
+                _key={selectedNav ? selectedNav.name + "-left" : "unk-left"}
             >
-                {selectedNav.text}
+                {selectedNav ? selectedNav.text : ""}
             </LeftInfo>
         </div>
     );
