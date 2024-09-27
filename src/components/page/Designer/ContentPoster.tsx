@@ -9,6 +9,7 @@ import { rootEase } from "@/util/rootEase";
 import { fontDisplay, fontDisplayItalic } from "@/font";
 import AnimatedHeroText from "@/components/AnimatedHeroText";
 import AnimatedText from "@/components/AnimatedText";
+import EndContent from "./EndContent";
 
 export default function ContentPoster(): React.ReactElement {
     const storage = useStorage() + "image/";
@@ -33,24 +34,13 @@ export default function ContentPoster(): React.ReactElement {
                                 loading="eager"
                                 width={2480}
                                 height={3508}
-                                delay={getDelay(baseDelay, indexAnimation)}
+                                delay={getDelay(baseDelay, indexAnimation++)}
                             ></AnimatedImage>
                         </li>
                     );
                 })}
             </ul>
-            <AnimatePresence>
-                <div className="overflow-hidden m-5">
-                    <AnimatedText
-                        scroll={true}
-                        type="italic"
-                        duration={1.5}
-                        className="justify-center text-lg md:text-xl leading-none"
-                    >
-                        You see the End...
-                    </AnimatedText>
-                </div>
-            </AnimatePresence>
+            <EndContent />
         </section>
     );
 }

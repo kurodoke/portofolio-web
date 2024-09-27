@@ -21,7 +21,10 @@ export default function ContentSwitcher({
     return (
         <section className="p-5 md:p-10 !pt-0">
             <div className="flex gap-5">
-                <AnimatedText delay={getDelay(baseDelay, indexAnimation, 0.2)}>
+                <AnimatedText
+                    type="standard"
+                    delay={getDelay(baseDelay, indexAnimation, 0.2)}
+                >
                     <button
                         className={`${
                             state === "poster" ? "is-active" : ""
@@ -34,7 +37,10 @@ export default function ContentSwitcher({
                     </button>
                 </AnimatedText>
 
-                <AnimatedText delay={getDelay(baseDelay, indexAnimation, 0.2)}>
+                <AnimatedText
+                    type="standard"
+                    delay={getDelay(baseDelay, indexAnimation, 0.2)}
+                >
                     <button
                         className={`${
                             state === "mv" ? "is-active" : ""
@@ -47,7 +53,10 @@ export default function ContentSwitcher({
                     </button>
                 </AnimatedText>
 
-                <AnimatedText delay={getDelay(baseDelay, indexAnimation, 0.2)}>
+                <AnimatedText
+                    type="standard"
+                    delay={getDelay(baseDelay, indexAnimation, 0.2)}
+                >
                     <button
                         className={`${
                             state === "mograph" ? "is-active" : ""

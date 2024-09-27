@@ -23,6 +23,7 @@ export default function Hero(): React.ReactElement {
         >
             <div className="grid grid-cols-6 md:grid-cols-12 gap-y-2 md:gap-x-10 md:gap-y-5">
                 <AnimatedText
+                    type="standard"
                     className="col-span-6 flex md:hidden items-end underline text-end"
                     delay={baseDelay}
                 >
@@ -43,6 +44,7 @@ export default function Hero(): React.ReactElement {
                     </AnimatedHeroText>
                 </div>
                 <AnimatedText
+                    type="standard"
                     className="hidden md:flex col-span-6 text-base"
                     delay={baseDelay}
                     duration={2.3}

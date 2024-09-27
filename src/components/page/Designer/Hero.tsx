@@ -29,7 +29,11 @@ export default function Hero(): React.ReactElement {
                     collections
                 </AnimatedHeroText>
             </div>
-            <AnimatedText className="text-base" delay={baseDelay}>
+            <AnimatedText
+                type="standard"
+                className="text-base"
+                delay={baseDelay}
+            >
                 personal and commission work collected over the past years
             </AnimatedText>
         </section>

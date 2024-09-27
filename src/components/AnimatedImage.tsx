@@ -6,6 +6,10 @@ import React, { useEffect, useState } from "react";
 const variants: Variants = {
     hidden: { clipPath: "inset(50% 50% 50% 50%)" },
     visible: { clipPath: "inset(0% 0% 0% 0%)" },
+    exit: {
+        clipPath: "inset(0% 0% 100% 0%)",
+        transition: { duration: 0.7, ease: rootEase },
+    },
 };
 
 export default function AnimatedImage({
@@ -26,6 +30,7 @@ export default function AnimatedImage({
             initial={"hidden"}
             animate={controls}
             variants={variants}
+            exit={"exit"}
             transition={{ delay: delay, ease: rootEase, duration: 1.3 }}
         >
             <Image {...props} onLoad={() => setIsLoaded(true)} />
