@@ -34,11 +34,11 @@ export default function ContentMoGraph(): React.ReactElement {
                 {isLoading && <p>Loading...</p>}
                 {error && <p>Error get data</p>}
                 {data &&
-                    data.map((item, index) => {
+                    data.map((item) => {
                         return (
                             <li
                                 className="col-span-6 md:col-span-6"
-                                key={item + "-" + index}
+                                key={"mograph-" + item.id}
                             >
                                 <YouTubeEmbed
                                     delay={getDelay(

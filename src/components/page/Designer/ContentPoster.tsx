@@ -36,16 +36,16 @@ export default function ContentPoster(): React.ReactElement {
                 {isLoading && <p>Loading...</p>}
                 {error && <p>Error get data</p>}
                 {data &&
-                    data.map((image, index) => {
+                    data.map((item) => {
                         return (
                             <li
                                 className="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-4"
-                                key={image + "-" + index}
+                                key={"poster-" + item.id}
                             >
-                                <h5 className="text-xl">{image.name}</h5>
+                                <h5 className="text-xl">{item.name}</h5>
                                 <AnimatedImage
-                                    src={storage + image.file}
-                                    alt={image.name}
+                                    src={storage + item.file}
+                                    alt={item.name}
                                     loading="eager"
                                     width={2480}
                                     height={3508}

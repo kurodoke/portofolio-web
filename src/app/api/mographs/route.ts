@@ -1,4 +1,4 @@
-import getFirestoreData from "@/util/getFirestoreData";
+import getFirestoreData from "@/util/Firestore";
 import { DesignerMographInterface } from "./mograph";
 
 export async function GET(): Promise<Response> {

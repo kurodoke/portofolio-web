@@ -52,7 +52,7 @@ export default function ListProject(): React.ReactElement {
                     {data &&
                         data.map((item, index) => {
                             return (
-                                <article key={item.title + "-" + index}>
+                                <article key={item.title + "-" + item.id}>
                                     {index === 0 && (
                                         <div className="w-full border-t border-black" />
                                     )}
@@ -62,9 +62,7 @@ export default function ListProject(): React.ReactElement {
                                                 "."}
                                         </div>
                                         <AnimatedLink
-                                            href={
-                                                "/developer/" + index.toString()
-                                            }
+                                            href={"/developer/" + item.id}
                                             className={`${fontDisplay.className} col-span-6 md:col-span-4 text-[8.2445vw] md:text-4xl leading-none animated-underline hover:[is-active]`}
                                         >
                                             {item.title}

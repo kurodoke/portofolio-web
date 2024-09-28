@@ -1,9 +1,15 @@
-import getFirestoreData from "@/util/Firestore";
-import { DesignerMVInterface } from "./musicvideo";
+import { getFirestoreDataByID } from "@/util/Firestore";
+import { DeveloperProjectInterface } from "../project";
 
-export async function GET(): Promise<Response> {
+export async function GET(
+    req: Request,
+    { params: { id } }: { params: { id: string } }
+) {
     try {
-        const data = await getFirestoreData<DesignerMVInterface>("musicvideos");
+        const data = await getFirestoreDataByID<DeveloperProjectInterface>(
+            "projects",
+            id
+        );
         return new Response(JSON.stringify(data), {
             status: 200,
             headers: { "Content-Type": "application/json" },
