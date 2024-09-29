@@ -6,7 +6,7 @@ import Navigation from "@/components/page/Header/Navigation/Navigation";
 import { IntroStoreProvider } from "@/providers/IntroProvider";
 import { PageProvider, usePageStore } from "@/providers/pageProvider";
 import { motion, useAnimation, Variants } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { aboutEase } from "@/components/page/About/animation";
 
 export default function RootTemplate({
@@ -41,6 +41,7 @@ function RootMain({
 }): React.ReactElement {
     const { isChange, setIsChange, pathPage, setPathPage } = usePageStore();
     const router = useRouter();
+    const pathname = usePathname();
 
     const [isInitial, setIsInitial] = useState<boolean>(true);
 
@@ -55,7 +56,8 @@ function RootMain({
         setIsChange(false);
         setPathPage("");
         setIsInitial(false);
-    }, []);
+        controls.set("visible");
+    }, [pathname]);
 
     useEffect(() => {
         if (isInitial) return;
