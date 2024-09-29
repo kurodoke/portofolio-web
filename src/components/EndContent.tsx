@@ -10,7 +10,7 @@ export default function EndContent(): React.ReactElement {
                     scroll={true}
                     type="italic"
                     duration={1.5}
-                    className="justify-center text-lg md:text-xl leading-none"
+                    className="justify-center text-base leading-none"
                 >
                     You see the End...
                 </AnimatedText>

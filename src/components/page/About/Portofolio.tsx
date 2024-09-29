@@ -18,7 +18,7 @@ export default function Portofolio(): React.ReactElement {
 
     return (
         <section className="p-5 md:p-10">
-            <div className="grid grid-cols-6 gap-y-5 md:gap-x-10 md:grid-cols-12 text-base md:text-xl">
+            <div className="grid grid-cols-6 gap-y-5 md:gap-x-10 md:grid-cols-12 text-base">
                 <div className="col-span-6 md:col-span-12 text-2xl md:text-xl">
                     .0B
                 </div>

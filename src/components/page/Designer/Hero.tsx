@@ -13,7 +13,7 @@ export default function Hero(): React.ReactElement {
 
     return (
         <section
-            className={`${fontDisplay.className} leading-tight md:leading-none hero p-5 md:p-10 text-[12.765vw] md:text-7xl lg:text-8xl`}
+            className={`${fontDisplay.className} leading-tight md:leading-none hero p-5 md:p-10 text-[12.765vw] md:text-5xl lg:text-7xl`}
         >
             <div className="title flex flex-col">
                 <AnimatedHeroText

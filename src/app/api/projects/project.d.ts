@@ -4,5 +4,6 @@ export interface DeveloperProjectInterface {
     subtitle: string;
     description: string;
     role: string;
+    tech: Array<string>;
     image: Array<string>;
 }

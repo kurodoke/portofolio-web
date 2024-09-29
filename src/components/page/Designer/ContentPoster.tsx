@@ -3,7 +3,7 @@ import AnimatedImage from "@/components/AnimatedImage";
 import { useIntroStore } from "@/providers/IntroProvider";
 import { getDelay } from "@/util/getDelay";
 import React, { useEffect, useState } from "react";
-import EndContent from "./EndContent";
+import EndContent from "../../EndContent";
 import { DesignerPosterInterface } from "@/app/api/posters/poster";
 
 export default function ContentPoster(): React.ReactElement {
@@ -42,7 +42,7 @@ export default function ContentPoster(): React.ReactElement {
                                 className="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-4"
                                 key={"poster-" + item.id}
                             >
-                                <h5 className="text-xl">{item.name}</h5>
+                                <h5 className="text-base">{item.name}</h5>
                                 <AnimatedImage
                                     src={storage + item.file}
                                     alt={item.name}

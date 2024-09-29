@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import YouTubeEmbed from "./YoutubeEmbed";
 import { useIntroStore } from "@/providers/IntroProvider";
 import { getDelay } from "@/util/getDelay";
-import EndContent from "./EndContent";
+import EndContent from "../../EndContent";
 import { DesignerMographInterface } from "@/app/api/mographs/mograph";
 
 export default function ContentMoGraph(): React.ReactElement {

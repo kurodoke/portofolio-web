@@ -5,6 +5,7 @@ import { AnimatedLink } from "@/components/AnimatedLink";
 import { useIntroStore } from "@/providers/IntroProvider";
 import AnimatedText from "@/components/AnimatedText";
 import { getDelay } from "@/util/getDelay";
+import EndContent from "@/components/EndContent";
 
 export default function ListProject(): React.ReactElement {
     const { isHasPlayed } = useIntroStore();
@@ -63,11 +64,11 @@ export default function ListProject(): React.ReactElement {
                                         </div>
                                         <AnimatedLink
                                             href={"/developer/" + item.id}
-                                            className={`${fontDisplay.className} col-span-6 md:col-span-4 text-[8.2445vw] md:text-4xl leading-none animated-underline hover:[is-active]`}
+                                            className={`${fontDisplay.className} col-span-6 md:col-span-4 text-4xl md:text-5xl leading-none animated-underline hover:[is-active]`}
                                         >
                                             {item.title}
                                         </AnimatedLink>
-                                        <div className="col-span-6 md:col-start-9 md:col-span-4 text-lg md:opacity-100 opacity-80 md:text-base">
+                                        <div className="col-span-6 md:col-start-9 md:col-span-4 md:opacity-100 opacity-80 md:text-base">
                                             {item.description}
                                         </div>
                                     </div>
@@ -77,6 +78,7 @@ export default function ListProject(): React.ReactElement {
                         })}
                 </div>
             </div>
+            <EndContent />
         </section>
     );
 }
