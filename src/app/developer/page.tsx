@@ -8,8 +8,10 @@ import React from "react";
 export default function Developer(): React.ReactElement {
     return (
         <main>
-            <Hero />
-            <ListProject />
+            <div className="wrapper min-h-screen">
+                <Hero />
+                <ListProject />
+            </div>
             <Footer />
         </main>
     );
