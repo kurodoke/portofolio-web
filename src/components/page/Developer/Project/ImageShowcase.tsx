@@ -46,7 +46,7 @@ export default function ImageShowcase({
                                             ? "md:col-span-10"
                                             : "md:col-span-5"
                                     } col-span-6`}
-                                    key={"image-" + data.id}
+                                    key={"image-" + data.id + "-" + index}
                                 >
                                     <AnimatedImage
                                         key={data.title + "-" + item}

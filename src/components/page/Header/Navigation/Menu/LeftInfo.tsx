@@ -27,7 +27,7 @@ export default function LeftInfo({
 
     return (
         <motion.div
-            className={`${className} flex items-center text-end justify-center text-lg origin-center p-10`}
+            className={`${className} flex items-center text-end justify-center text-base origin-center p-10`}
             {...animationProps}
             key={_key}
         >
