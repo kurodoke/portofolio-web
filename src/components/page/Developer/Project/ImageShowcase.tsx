@@ -42,20 +42,20 @@ export default function ImageShowcase({
                             return (
                                 <li
                                     className={`${
-                                        index == 0
+                                        item.full
                                             ? "md:col-span-10"
                                             : "md:col-span-5"
                                     } col-span-6`}
                                     key={"image-" + data.id + "-" + index}
                                 >
                                     <AnimatedImage
-                                        key={data.title + "-" + item}
+                                        key={data.title + "-" + item.file}
                                         delay={getDelay(
                                             baseDelay,
                                             indexAnimation++
                                         )}
-                                        src={storage + item}
-                                        alt={data.title + "-" + item}
+                                        src={storage + item.file}
+                                        alt={data.title + "-" + item.file}
                                         width={2480}
                                         height={3508}
                                         loading="eager"

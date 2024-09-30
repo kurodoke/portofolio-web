@@ -1,3 +1,8 @@
+interface ProjectImageInterface {
+    file: string;
+    full: false;
+}
+
 export interface DeveloperProjectInterface {
     id: string;
     title: string;
@@ -5,5 +10,5 @@ export interface DeveloperProjectInterface {
     description: string;
     role: string;
     tech: Array<string>;
-    image: Array<string>;
+    image: Array<ProjectImageInterface>;
 }
