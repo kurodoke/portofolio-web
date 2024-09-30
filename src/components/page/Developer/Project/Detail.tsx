@@ -37,6 +37,24 @@ export default function Detail({
                     >
                         {data.role}
                     </AnimatedText>
+                    {data.public && (
+                        <AnimatedText
+                            type="standard"
+                            delay={getDelay(baseDelay, indexAnimation)}
+                            className="flex gap-1"
+                        >
+                            This project has been publicly deployed.
+                            <a
+                                target="_blank"
+                                href={data.public}
+                                rel="noopener noreferrer"
+                            >
+                                <span className="underline text-base">
+                                    click here.
+                                </span>
+                            </a>
+                        </AnimatedText>
+                    )}
                 </div>
             </div>
 

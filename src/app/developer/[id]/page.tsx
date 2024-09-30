@@ -5,7 +5,6 @@ import Close from "@/components/page/Developer/Project/Close";
 import Detail from "@/components/page/Developer/Project/Detail";
 import Hero from "@/components/page/Developer/Project/Hero";
 import ImageShowcase from "@/components/page/Developer/Project/ImageShowcase";
-import Footer from "@/components/page/Footer/Footer";
 import React, { useEffect, useState } from "react";
 
 export default function DeveloperDetail({
@@ -30,7 +29,24 @@ export default function DeveloperDetail({
             });
     }, [id]);
 
-    if (!isLoading && data) {
+    if (isLoading) {
+        return (
+            <main>
+                <section className="p-5 md:p-10">loading...</section>
+            </main>
+        );
+    }
+
+    if (error) {
+        <main>
+            <section className="p-5 md:p-10 text-center text-4xl">
+                error occurred, please try again
+            </section>
+            <Close />
+        </main>;
+    }
+
+    if (data?.title) {
         return (
             <main>
                 <Hero data={data} />
@@ -39,12 +55,14 @@ export default function DeveloperDetail({
                 <Close />
             </main>
         );
-    } else {
-        // if data not yet given by db
-        return (
-            <main>
-                <section className="p-5 md:p-10">loading...</section>
-            </main>
-        );
     }
+
+    return (
+        <main>
+            <section className="p-5 md:p-10 text-center text-4xl">
+                no data (404)
+            </section>
+            <Close />
+        </main>
+    );
 }

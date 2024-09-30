@@ -11,4 +11,5 @@ export interface DeveloperProjectInterface {
     role: string;
     tech: Array<string>;
     image: Array<ProjectImageInterface>;
+    public: string;
 }
