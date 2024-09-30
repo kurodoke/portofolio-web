@@ -58,19 +58,42 @@ export default function ListProject(): React.ReactElement {
                                         <div className="w-full border-t border-black" />
                                     )}
                                     <div className="grid grid-cols-6 md:grid-cols-12 md:gap-x-10 gap-y-5 md:gap-y-5 my-5 md:my-10">
-                                        <div className="text-base col-span-6 md:col-span-3">
+                                        <AnimatedText
+                                            type="bold"
+                                            delay={getDelay(
+                                                baseDelay,
+                                                indexAnimation++
+                                            )}
+                                            className="text-base col-span-6 md:col-span-3"
+                                        >
                                             {("0" + (index + 1)).slice(-2) +
                                                 "."}
-                                        </div>
+                                        </AnimatedText>
+
                                         <AnimatedLink
                                             href={"/developer/" + item.id}
                                             className={`${fontDisplay.className} col-span-6 md:col-span-4 text-4xl md:text-5xl leading-none animated-underline hover:[is-active]`}
                                         >
-                                            {item.title}
+                                            <AnimatedText
+                                                type={"bold"}
+                                                delay={getDelay(
+                                                    baseDelay,
+                                                    indexAnimation++
+                                                )}
+                                            >
+                                                {item.title}
+                                            </AnimatedText>
                                         </AnimatedLink>
-                                        <div className="col-span-6 md:col-start-9 md:col-span-4 md:opacity-100 opacity-80 md:text-base">
+                                        <AnimatedText
+                                            type="standard"
+                                            className="col-span-6 md:col-start-9 md:col-span-4 md:opacity-100 opacity-80 md:text-base"
+                                            delay={getDelay(
+                                                baseDelay,
+                                                indexAnimation++
+                                            )}
+                                        >
                                             {item.description}
-                                        </div>
+                                        </AnimatedText>
                                     </div>
                                     <div className="w-full border-t border-black" />
                                 </article>
