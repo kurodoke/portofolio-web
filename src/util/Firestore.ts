@@ -5,11 +5,31 @@ import {
     ServiceAccount,
 } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
-import serviceAccount from "@/config/portfolio-krk-firebase-adminsdk.json";
+
+let serviceAccount: ServiceAccount | undefined;
+
+const getServiceAccount = (): ServiceAccount | undefined => {
+    if (process.env.GOOGLE_SERVICE_ACCOUNT) {
+        try {
+            return JSON.parse(
+                process.env.GOOGLE_SERVICE_ACCOUNT
+            ) as ServiceAccount;
+        } catch (error) {
+            console.error("Failed to parse GOOGLE_SERVICE_ACCOUNT:", error);
+        }
+    }
+    return undefined;
+};
+
+if (process.env.NODE_ENV === "development") {
+    serviceAccount = require("@/config/portfolio-krk-firebase-adminsdk.json");
+} else {
+    serviceAccount = getServiceAccount();
+}
 
 type collectionNameProps = "projects" | "posters" | "musicvideos" | "mographs";
 
-if (!getApps().length) {
+if (!getApps().length && serviceAccount) {
     initializeApp({
         credential: cert(serviceAccount as ServiceAccount),
     });
