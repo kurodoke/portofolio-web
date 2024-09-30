@@ -1,4 +1,4 @@
-import { NavigationLinkInterface } from "@/components/Navigation/navItems";
+import { NavigationLinkInterface } from "@/components/page/Header/Navigation/navItems";
 import { createStore } from "zustand";
 
 export interface NavigationState {
