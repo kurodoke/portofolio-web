@@ -71,6 +71,7 @@ export default function ListProject(): React.ReactElement {
                                         </AnimatedText>
 
                                         <AnimatedLink
+                                            scroll={false}
                                             href={"/developer/" + item.id}
                                             className={`${fontDisplay.className} col-span-6 md:col-span-4 text-4xl md:text-5xl leading-none animated-underline hover:[is-active]`}
                                         >
