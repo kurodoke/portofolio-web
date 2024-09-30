@@ -41,9 +41,8 @@ export default function Detail({
                         <AnimatedText
                             type="standard"
                             delay={getDelay(baseDelay, indexAnimation)}
-                            className="flex gap-1"
                         >
-                            This project has been publicly deployed.
+                            This project has been publicly deployed.{" "}
                             <a
                                 target="_blank"
                                 href={data.public}
