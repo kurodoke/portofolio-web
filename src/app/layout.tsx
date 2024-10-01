@@ -11,7 +11,7 @@ export const metadata: Metadata = {
         "Arief Satrio, Full Stack Developer, Cloud Engineer, Graphic Design, Web Development, Backend, Google Cloud, Vercel, Portfolio, Software Engineer, Poster, Music Video, Motion Poster, Motion Graphic, Nextjs, Reactjs, Laravel",
     robots: "index, follow",
     openGraph: {
-        title: "Arief Satrio - Portofolioo",
+        title: "Arief Satrio - Portofolio",
         description:
             "Explore projects and skills of Arief Satrio in full stack development, cloud computing, and graphic design.",
         type: "website",
