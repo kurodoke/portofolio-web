@@ -5,6 +5,7 @@ import { getDelay } from "@/util/getDelay";
 import React, { useEffect, useState } from "react";
 import EndContent from "../../EndContent";
 import { DesignerPosterInterface } from "@/app/api/posters/poster";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 export default function ContentPoster(): React.ReactElement {
     const storage = useStorage() + "image/";
@@ -32,32 +33,37 @@ export default function ContentPoster(): React.ReactElement {
 
     return (
         <section className="p-5 md:p-10 !pt-0">
-            <ul className="grid grid-cols-6 md:grid-cols-12 gap-x-5 gap-y-5 md:gap-y-10 md:gap-x-10">
+            <div className="">
                 {isLoading && <p>Loading...</p>}
                 {error && <p>Error get data</p>}
-                {data &&
-                    data.map((item) => {
-                        return (
-                            <li
-                                className="col-span-6 sm:col-span-3 md:col-span-6 lg:col-span-4"
-                                key={"poster-" + item.id}
-                            >
-                                <h5 className="text-base">{item.name}</h5>
-                                <AnimatedImage
-                                    src={storage + item.file}
-                                    alt={item.name}
-                                    loading="eager"
-                                    width={2480}
-                                    height={3508}
-                                    delay={getDelay(
-                                        baseDelay,
-                                        indexAnimation++
-                                    )}
-                                ></AnimatedImage>
-                            </li>
-                        );
-                    })}
-            </ul>
+                <ResponsiveMasonry
+                    columnsCountBreakPoints={{ 1: 1, 668: 2, 1024: 3 }}
+                >
+                    <Masonry gutter="1.25rem">
+                        {data &&
+                            data.map((item) => {
+                                return (
+                                    <div key={"poster-" + item.id}>
+                                        <h5 className="text-base">
+                                            {item.name}
+                                        </h5>
+                                        <AnimatedImage
+                                            src={storage + item.file}
+                                            alt={item.name}
+                                            loading="eager"
+                                            width={2480}
+                                            height={3508}
+                                            delay={getDelay(
+                                                baseDelay,
+                                                indexAnimation++
+                                            )}
+                                        ></AnimatedImage>
+                                    </div>
+                                );
+                            })}
+                    </Masonry>
+                </ResponsiveMasonry>
+            </div>
             {!isLoading && <EndContent />}
         </section>
     );
