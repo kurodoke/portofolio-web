@@ -14,7 +14,7 @@ export default function Portofolio(): React.ReactElement {
     const [selectedPortofolio, setSelectedPortofolio] =
         useState<SelectedPortofolio>("fullstack");
 
-    const image = useStorage() + "image/";
+    const image = useStorage('poster');
 
     return (
         <section className="p-5 md:p-10">
@@ -108,7 +108,7 @@ export default function Portofolio(): React.ReactElement {
                         <AnimatedPortofolioFigure _key="poster-coffee-addict">
                             <Image
                                 loading="eager"
-                                src={image + "coffee-addict.jpg"}
+                                src={image + "coffee-addict-rS5toWH1GaS1lUelJUKmU1DBXQWBE4.jpg"}
                                 alt="poster-coffee-addict"
                                 width={720}
                                 height={650}
@@ -118,7 +118,7 @@ export default function Portofolio(): React.ReactElement {
                         <AnimatedPortofolioFigure _key="poster-visually-bright">
                             <Image
                                 loading="eager"
-                                src={image + "visually-bright.jpg"}
+                                src={image + "visually-bright-mobn1QfleWLSZh3zieSICxbJEnEb5x.jpg"}
                                 alt="poster-visually-bright"
                                 width={720}
                                 height={650}

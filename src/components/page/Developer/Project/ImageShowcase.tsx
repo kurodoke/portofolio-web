@@ -23,7 +23,7 @@ export default function ImageShowcase({
     const baseDelay = isHasPlayed ? 0 : 3.9;
     let indexAnimation = 0;
 
-    const storage = useStorage() + "image/";
+    const storage = useStorage('project');
 
     if (isShow) {
         if (!data.image) {

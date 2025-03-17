@@ -8,7 +8,7 @@ import { DesignerPosterInterface } from "@/app/api/posters/poster";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 export default function ContentPoster(): React.ReactElement {
-    const storage = useStorage() + "image/";
+    const storage = useStorage('poster');
     const { isHasPlayed } = useIntroStore();
 
     const baseDelay = isHasPlayed ? 0 : 3.9;

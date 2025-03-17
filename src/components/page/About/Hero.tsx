@@ -15,7 +15,7 @@ export default function Hero(): React.ReactElement {
     const baseDelay = isHasPlayed ? 0 : 3.9;
     let indexAnimation = 0;
 
-    const image = useStorage() + "image/";
+    const image = useStorage('poster');
 
     return (
         <section
@@ -64,7 +64,7 @@ export default function Hero(): React.ReactElement {
                         >
                             <Image
                                 className="w-auto md:h-[10.84vw] border-2 border-black"
-                                src={image + "and-poster.jpg"}
+                                src={image + "and-poster-e6h2foYhoKkVl5fp74XzTSYI1qXvKM.jpg"}
                                 alt="and-poster"
                                 width={800}
                                 height={600}

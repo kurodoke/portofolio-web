@@ -14,9 +14,9 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "storage.googleapis.com",
+                hostname: "samcnw0ebjxp2rx0.public.blob.vercel-storage.com",
                 port: "",
-                pathname: "/portofolio-image-krk/image/**",
+                pathname: "/**",
             },
         ],
     },
